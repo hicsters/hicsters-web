@@ -4,37 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters</title>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/components/menu/menu.css">
 </head>
 <body>
-    <div id="header"></div>
-    <section class="tabs">
-        <ui class="tab-list">
-            <li class="tab-item active">
-                <a href="none">All</a>
-            </li>
-            <li class="tab-item">
-                <a href="none">Anthology</a>
-            </li>
-            <li class="tab-item">
-                <a href="none">Series</a>
-            </li>
-            <li class="tab-item">
-                <a href="none">Others</a>
-            </li>
-        </ui>
+    <section class="top">
+        <div id="header"></div>
+        <nav>
+            <ul>
+                <li class="menu">
+                    <a href="#none"> 
+                        <p class="menu-title">
+                            Archive
+                        </p>
+                        <div class="contents-num">
+                            <img src="/images/icons/icon-parenthesis-wt.svg" alt="괄호 열고">
+                            <p>36</p>
+                            <img class="close" src="/images/icons/icon-parenthesis-wt.svg" alt="괄호 닫고">
+                            <img src="images/icons/icon-arrow-wt.svg" alt="메뉴 이동">
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="menu">
+                    <a href="#none"> 
+                        <p class="menu-title">
+                            About
+                        </p>
+                        <img src="images/icons/icon-arrow-wt.svg" alt="메뉴 이동">
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="menu">
+                    <a href="#none"> 
+                        <p class="menu-title">
+                            Contact
+                        </p>
+                        <img src="images/icons/icon-arrow-wt.svg" alt="메뉴 이동">
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="menu">
+                    <a href="#none"> 
+                        <p class="menu-title">
+                            Gacha!
+                        </p>
+                        <img src="images/icons/icon-gacha-wt.svg" alt="메뉴 이동">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <section class="tabs">
+            <ui class="tab-list">
+                <li class="tab-item active">
+                    <a href="none">All</a>
+                </li>
+                <li class="tab-item">
+                    <a href="none">Anthology</a>
+                </li>
+                <li class="tab-item">
+                    <a href="none">Series</a>
+                </li>
+                <li class="tab-item">
+                    <a href="none">Others</a>
+                </li>
+            </ui>
+        </section>
     </section>
     <main>
-        <ul class="contects-list">
-            <li class="contsnts-caㄴrd">
-
-            </li>
-            <li class="contsnts-card"></li>
-        </ul>
+        <div class="contects-list">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
     </main>
     <div id="footer"></div>
-    <script src="./scripts/common.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
 </html>

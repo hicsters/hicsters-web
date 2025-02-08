@@ -17,4 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             console.error("Footer loading error:", error);
         });
+
+    // card load
+    fetch('components/card/card.html')
+    .then(response => response.text())
+    .then(data => {
+      const cards = document.getElementsByClassName('card');
+      Array.from(cards).forEach(card => {
+        card.innerHTML = data;
+      });
+    })
+    .catch(error => {
+      console.error("Card loading error:", error);
+    });
 });

@@ -3,8 +3,7 @@ header{
     height: 64px;
     padding: 0 20px;
     position: fixed;
-    background-color: white;
-    z-index: 999;
+    z-index: 3;
 }
 .header-container{
     width: 100%;
