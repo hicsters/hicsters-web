@@ -37,9 +37,11 @@ nav{
     padding: 0px 20px 80px;
     display: flex;
     opacity: 0; 
+    transition: 0.3s;
 }
 nav.active{
     opacity: 1;
+    transition: 0.3s;
 }
 li.menu a{
     display: flex;
