@@ -20,11 +20,13 @@ header{
     width: auto;
     height: 20px;
 }
+header.hideLogo .logo img{
+    display: none;
+}
 .btn-menu > img{
     width: 32px;
     height: 32px;
 }
-
 nav{
     width: 100%;
     height: 100%;
@@ -34,27 +36,30 @@ nav{
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(80px);
     z-index: 2;
-    padding: 0px 20px 80px;
+    padding: 0px 20px 64px;
     display: flex;
-    opacity: 0; 
-    transition: 0.3s;
 }
-nav.active{
-    opacity: 1;
-    transition: 0.3s;
+nav.close{
+    display: none;
 }
 li.menu a{
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
+    height: 56px;
 }
 nav p.menu-title{
     color: white;
     font-size: 40px;
 }
 nav li.divider{
+    width: 100%;
+    height: 2px;
     background-color: white;
+}
+nav li{
+    margin-bottom: 16px;
 }
 nav ul{
     align-self: flex-end;
