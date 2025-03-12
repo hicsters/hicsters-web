@@ -27,41 +27,35 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     // nav 토글
-                    nav.classList.toggle("active"); 
+                    nav.classList.toggle("close"); 
 
                     // 메뉴가 열릴 때 body에 스크롤 비활성화
-                    if (nav.classList.contains("active")) {
-                        body.style.overflow = "hidden"; // 스크롤 비활성화
+                    if (nav.classList.contains("close")) {
+                        body.style.overflow = "auto"; // 스크롤 비활성화
                     } else {
-                        body.style.overflow = "auto"; // 스크롤 활성화
+                        body.style.overflow = "hidden"; // 스크롤 활성화
+                    }
+
+                    // 만약 현재 페이지가 contact.html일 때만 hideLogo 클래스 토글
+                    if (window.location.pathname.includes('contact.html')) {
+                        const header = document.querySelector('header');
+                        if (header) {
+                            header.classList.toggle('hideLogo');
+                        }
                     }
                 });
             }
+
+            // 만약 현재 페이지가 contact.html이라면 header에 .hideLogo 클래스 추가
+            if (window.location.pathname.includes('contact.html')) {
+                const header = document.querySelector('header');
+                if (header) {
+                    header.classList.add('hideLogo');
+                }
+            }
+
         })
         .catch(error => {
             console.error("Header loading error:", error);
-        });
-
-    // footer load
-    fetch('components/footer/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        })
-        .catch(error => {
-            console.error("Footer loading error:", error);
-        });
-
-    // card load
-    fetch('components/card/card.html')
-        .then(response => response.text())
-        .then(data => {
-            const cards = document.getElementsByClassName('card');
-            Array.from(cards).forEach(card => {
-                card.innerHTML = data;
-            });
-        })
-        .catch(error => {
-            console.error("Card loading error:", error);
         });
 });

@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/contact.css">
 </head>
 <body>
-    <div id="header"></div>
+    <div id="header" class="hideLogo"></div>
+    <main>
+        <div class="letter-button">
+            <img src="/images/letter-button.svg" alt="편지 단추">
+            <div class="letter-line"></div>
+        </div>
+        <div class="contact-info">
+            <ul class="copy">
+                <li>
+                    <p>Would</p>
+                    <p>You</p>
+                </li>
+                <li>
+                    <p>Like</p>
+                    <div class="md">
+                        <img src="/images/icons/icon-parenthesis-bk.svg" alt="괄호 열고">
+                        <p class="sm">우리가 궁금해요?</p>
+                        <img class="close" src="/images/icons/icon-parenthesis-bk.svg" alt="괄호 닫고">
+                    </div>
+                    <p>to</p>
+                </li>
+                <li>
+                    <p>Contact</p>
+                    <p>Us?</p>
+                </li>
+            </ul>
+            <ul class="email">
+                <li>
+                    <p>e-mail</p>
+                </li>
+                <li>
+                    <p>marooenads@gmail.com</p>
+                    <div class="link">
+                        <a href="#none" id="sendEmail">Send</a>
+                        <a href="#none" id="copyEmail">Copy</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
     <div id="footer"></div>
-    <script src="./scripts/common.js"></script>
+    <script src="/components/header/header.js"></script>
+    <script src="/components/footer/footer.js"></script>
+    <script src="/scripts/contact.js"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+main{
+    padding: 64px 0px 80px;
+}
+.letter-button{
+    width: 100%;
+    height: 192px;
+    display: flex;
+    position: relative;
+    margin-bottom: 80px;
+}
+.letter-button img{
+    margin: 0 auto;
+    transform: translateX(9px);
+}
+.letter-line{
+    width: 100%;
+    height: 2px;
+    background-color: var(--black);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-1px);
+}
+.contact-info{
+    padding: 0px 20px;
+}
+ul.copy{
+    margin-bottom: 32px;
+}
+ul.copy li{
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+}
+ul.copy li .md{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul.copy li .md img{
+    width: 12px;
+    height: 24px;
+}
+ul.copy li .md img.close{
+    transform: rotate(180deg);
+}
+ul.copy p{ 
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 400;
+}
+@media (max-width: 360px) {
+    ul.copy p {
+      font-size: 56px;
+    }
+}
+
+ul.copy p.sm{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+ul.email{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+.link{
+    margin-top: 8px;
+}
+.link a{
+    font-weight: 600;
+    text-decoration: underline;
+    margin-right: 16px;
+}
