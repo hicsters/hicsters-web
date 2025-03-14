@@ -1,0 +1,148 @@
+div.about-intro{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--black);
+    padding: 64px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+div.about-intro p{
+    font-size: 56px;
+    font-weight: 200;
+    color: white;
+}
+div.about-intro img{
+    width: 100%;
+}
+div.about-body{
+    width: 100%;
+    padding: 64px 20px;
+}
+.grenade, .mask{
+    margin: 80px 0px;
+}
+.grenade img {
+    width: 100%;
+}
+.mask{
+    width: 100%;
+    height: auto; 
+    position: relative;
+}
+.mask svg {
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+}
+.mask img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+ul.title p{
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 400;
+
+}
+ul.title{
+    margin-bottom: 16px;
+}
+ul.title p.sm{
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 600;
+}
+ul.title > li{
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+}
+ul.title > li:last-child div{  
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+ul.title > li:last-child div img{
+    width: 12px;
+    height: 24px;
+}
+img.close{
+    transform: rotate(180deg);
+}
+ul.text{
+    display: flex;
+    flex-direction: column;
+}
+ul.text p{
+    font-size: 16px;
+    font-weight: 500;
+    text-indent: 48px;
+}
+ul.text img{
+    width: 24px;
+}
+ul.text img.symbol{
+    width: 100px;
+    height: 80px;
+}
+ul.how li:last-child{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+ul.how li:last-child div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+ul.how li>p{
+    margin-bottom: 8px;
+}
+ul.jobs{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+ul.jobs li{
+    display: flex;
+}
+ul.jobs li div{
+    flex: 1;
+    font-weight: 600;
+    height: 24px;
+    align-items: center;
+}
+ul.jobs li div.right{
+    text-align: right;
+}
+ul.jobs li div.emoji{
+    font-size: 20px;
+}
+li.column{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+ul.what li:first-child{
+    display: flex;
+    margin-bottom: 8px;
+}
+ul.what li:first-child div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+ul.what li:first-child div p{
+    text-indent: 0px;
+    font-weight: 600;
+}
+ul.what li:last-child{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

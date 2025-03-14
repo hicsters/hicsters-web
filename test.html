@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mask">
+        <svg width="100%" height="100%" viewBox="0 0 320 364" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask-ellipse" maskUnits="userSpaceOnUse">
+                    <path fill-rule="evenodd" clip-rule="evenodd" 
+                          d="M160 364C276.873 364 320 279.272 320 180.96C320 82.6475 276.873 -1.88513e-06 160 -6.99382e-06C43.1267 -1.21025e-05 2.69049e-05 82.6475 2.26076e-05 180.96C1.83102e-05 279.272 43.1267 364 160 364Z" 
+                          fill="white"/>
+                </mask>
+            </defs>
+            <!-- 마스크를 적용할 이미지 -->
+            <image href="/images/img_crosswalk.png" width="100%" height="100%" mask="url(#mask-ellipse)" />
+        </svg>
+    </div>
+    
+    <style>
+        .mask {
+            width: 100%;
+            height: 100vh; /* 이미지가 부모 div 크기 맞게 리사이징 */
+            position: relative;
+        }
+        
+        svg {
+            width: 100%; /* SVG 크기 100% */
+            height: 100%; /* SVG 크기 100% */
+            display: block; /* 부모 컨테이너에 맞게 블록 형태로 표시 */
+        }
+    
+        /* 마스크 효과 */
+        image {
+            width: 100%; /* 이미지 크기를 부모 div 크기 맞게 리사이징 */
+            height: 100%; /* 이미지 크기 맞춤 */
+            object-fit: cover; /* 이미지가 화면을 채우도록 조정 */
+        }
+    </style>
+</body>
+</html>
