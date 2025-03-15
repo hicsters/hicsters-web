@@ -23,6 +23,9 @@ header{
 header.hideLogo .logo img{
     display: none;
 }
+header.bg{
+    background-color: white;
+}
 .btn-menu > img{
     width: 32px;
     height: 32px;
