@@ -1,9 +1,15 @@
+:root {
+    --bg-color: #ffffff;           
+    --text-color: #1a1a1a;        
+}
 header{
     width: 100%;
     height: 64px;
     padding: 0 20px;
     position: fixed;
-    z-index: 3;
+    top:0; 
+    left: 0;
+    z-index: 10;
 }
 .header-container{
     width: 100%;
@@ -24,7 +30,7 @@ header.hideLogo .logo img{
     display: none;
 }
 header.bg{
-    background-color: white;
+    background-color: var(--bg-color);
 }
 .btn-menu > img{
     width: 32px;
@@ -38,13 +44,13 @@ nav{
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(80px);
-    z-index: 2;
+    z-index: 5;
     padding: 0px 20px 64px;
-    display: flex;
-}
-nav.close{
     display: none;
 }
+nav.open {
+    display: flex;
+  }
 li.menu a{
     display: flex;
     justify-content: space-between;
@@ -82,7 +88,7 @@ li.menu img{
     font-size: 20px;
     font-weight: 500;
 }
-.contents-num img.close{
+.contents-num img.end{
     transform: rotate(180deg);
     margin-right: 8px;
 }

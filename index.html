@@ -12,16 +12,16 @@
         <div id="header"></div>
         <section class="tabs">
             <ui class="tab-list">
-                <li class="tab-item active">
+                <li class="tab-item all active">
                     <a href="none">All</a>
                 </li>
-                <li class="tab-item">
+                <li class="tab-item anthology">
                     <a href="none">Anthology</a>
                 </li>
-                <li class="tab-item">
+                <li class="tab-item series">
                     <a href="none">Series</a>
                 </li>
-                <li class="tab-item">
+                <li class="tab-item others">
                     <a href="none">Others</a>
                 </li>
             </ui>
@@ -29,14 +29,32 @@
     </section>
     <main>
         <div class="contects-list">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <a href="/contents/contents-01.html">
+                <div class="card-01 card-others"></div>
+            </a>
+            <a href="/contents/contents-02.html">
+                <div class="card-02 card-series"></div>
+            </a>
+            <a href="/contents/contents-03.html">
+                <div class="card-03 card-anthology"></div>
+            </a>
+            <a href="/contents/contents.html">
+                <div class="card-04 card-others"></div>
+            </a>
+            <a href="/contents/contents.html">
+                <div class="card-05 card-series"></div>
+            </a>
+            <a href="/contents/contents.html">
+                <div class="card-06 card-anthology"></div>
+            </a>
+            </a>
         </div>
     </main>
     <div id="footer"></div>
     <script src="/components/header/header.js"></script>
     <script src="/components/footer/footer.js"></script>
     <script src="/components/card/card.js"></script>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
 </html>

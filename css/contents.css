@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'Maruburi';
+    src: url('/fonts/MaruBuri-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Maruburi';
+    src: url('/fonts/MaruBuri-SemiBold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+html {
+    overflow-x: hidden;
+}
+:root {
+    --bg-color: #ffffff;           
+    --text-color: #1a1a1a;        
+    --font-family: 'Pretendard Variable', sans-serif; 
+}
+main{
+    margin: 0;
+    padding: 0;
+}
+main *{
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+body.menu-open {
+    overflow: hidden;
+  }
+.scroll-track{
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-color);
+    margin-top: 64px;
+    position: fixed;
+    z-index: 1;
+}
+.scroll-bar{
+    width: 30%;
+    height: 2px;
+    background-color: var(--text-color);
+}
+main > .top{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.top > .thumb {
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/thmb/thumb-test.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    z-index: -1;
+}
+.top .info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--bg-color);
+    
+}
+.info{
+    padding: 32px 20px 64px 20px;
+}
+.info .contents-title p{
+    font-size: 32px;
+    font-weight: 600;
+}
+li.info-value{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+}
+li.info-value p{
+    font-size: 16px;
+    font-weight: 600;
+}
+li.info-divider{
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 12px 0px;
+}
+.dropdown-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px; 
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dropdown {
+    position: relative;
+    width: 80px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.dropdown-toggle {
+    padding: 4px 20px 4px 8px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('/images/icons/icon-dropdown-bk.svg'); 
+    background-repeat: no-repeat;
+    background-position: right 40%;
+    background-size: 16px;
+}
+
+  .dropdown-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: var(--bg-color);
+    border: 2px solid var(--text-color);
+    border-radius: 4px;
+    display: none;
+    z-index: 999;
+    font-weight: 600;
+    pointer-events: auto;
+  }
+
+  .dropdown-options div {
+    padding: 6px 10px;
+    cursor: pointer;
+    text-align: right;
+  }
+
+  .dropdown-options div:hover {
+    background-color: var(--bg-color);
+  }
+
+  .dropdown.open .dropdown-options {
+    display: block;
+  }
+div.font{
+    display: flex;
+    gap: 8px;
+    align-content: center;
+}
+div.toggle{
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    border: 2px solid var(--text-color);
+    padding: 2px;
+    transition: 300ms;
+}
+div.toggle-inner{
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: var(--text-color);
+    transition: 300ms;
+}
+div.font.on div.toggle{
+    background-color: var(--text-color);
+}
+div.font.on div.toggle-inner{
+    background-color: var(--bg-color);
+    margin-left: 20px;
+}
+div.body{
+    background-color: var(--bg-color);
+}
+ul.writing{
+    width: 100%;
+    padding: 0px 16px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+ul.writing p{
+    padding: 0px 4px;
+}
+ul.writing .in-text-img img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+div.hicster-contact{
+    margin: 0px 20px;
+    padding: 40px 0px 64px;
+    display: flex;
+    border-top: 2px solid var(--text-color);
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+}
+div.hicster-contact ul{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hicster-name p{
+    font-size: 24px;
+}
+.contact-btn a{
+    height: 32px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.contact-btn img{
+    width: 24px;
+    height: 24px;
+}
