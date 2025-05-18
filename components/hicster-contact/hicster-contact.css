@@ -1,0 +1,29 @@
+
+#hicster-contact{
+    margin: 0px 20px;
+    padding: 40px 0px 64px;
+    display: flex;
+    border-top: 2px solid var(--text-color);
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+}
+#hicster-contact ul{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hicster-name p{
+    font-size: 24px;
+}
+.contact-btn a{
+    height: 32px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.contact-btn img{
+    width: 24px;
+    height: 24px;
+}

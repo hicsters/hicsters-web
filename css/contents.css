@@ -7,9 +7,9 @@
 @font-face {
     font-family: 'Maruburi';
     src: url('/fonts/MaruBuri-SemiBold.ttf') format('truetype');
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-  }
+}
 
 html {
     overflow-x: hidden;
@@ -51,7 +51,6 @@ main > .top{
 .top > .thumb {
     width: 100%;
     height: 100vh;
-    background-image: url(/images/thmb/thumb-test.jpg);
     background-size: cover;
     background-position: center;
     position: fixed;
@@ -187,38 +186,10 @@ ul.writing{
     line-height: 1.8;
 }
 ul.writing p{
-    padding: 0px 4px;
+    padding: 0px 4px 32px;
 }
 ul.writing .in-text-img img{
     width: 100%;
     height: auto;
     border-radius: 8px;
-}
-div.hicster-contact{
-    margin: 0px 20px;
-    padding: 40px 0px 64px;
-    display: flex;
-    border-top: 2px solid var(--text-color);
-    font-size: 16px;
-    font-weight: 600;
-    justify-content: space-between;
-    align-items: center;
-}
-div.hicster-contact ul{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-.hicster-name p{
-    font-size: 24px;
-}
-.contact-btn a{
-    height: 32px;
-    display: flex;
-    gap: 4px;
-    align-items: center;
-}
-.contact-btn img{
-    width: 24px;
-    height: 24px;
 }
