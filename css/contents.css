@@ -19,6 +19,7 @@ html {
     --text-color: #1a1a1a;        
     --font-family: 'Pretendard Variable', sans-serif; 
 }
+
 main{
     margin: 0;
     padding: 0;
@@ -174,6 +175,7 @@ div.font.on div.toggle-inner{
 }
 div.body{
     background-color: var(--bg-color);
+    margin-top: -1px;
 }
 ul.writing{
     width: 100%;
@@ -188,8 +190,18 @@ ul.writing{
 ul.writing p{
     padding: 0px 4px 32px;
 }
-ul.writing .in-text-img img{
+ul.writing .in-text-img img,
+ul.writing .in-text-img [data-svg] {
     width: 100%;
     height: auto;
     border-radius: 8px;
+}
+li.asterisk {
+    display: flex;
+    gap: 8px;
+}
+li.asterisk [data-svg],
+li.asterisk img {
+    width: 24px;
+    height: 24px;
 }

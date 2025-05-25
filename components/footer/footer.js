@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('/components/footer/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        })
-        .catch(error => {
-            console.error("Footer loading error:", error);
-        });
+    fetch("/components/footer/footer.html")
+      .then(res => res.text())
+      .then(async html => {
+        const footerEl = document.getElementById("footer");
+        footerEl.innerHTML = html;
+        
+        // SVG 로더 실행
+        await loadSvgElements(footerEl);
+      })
+      .catch(err => console.error("Footer loading failed:", err));
 });

@@ -19,30 +19,54 @@
     list-style: none;
     border: none;
     outline: none;
+}
+
+/* 텍스트 요소에만 기본 색상 적용 */
+p, h1, h2, h3, h4, h5, h6, span, a, label, input, textarea {
     color: var(--black);
-  }
-  
-  html, body {
+}
+
+html {
+    /* 스크롤바 항상 표시 */
+    overflow-y: scroll;
+}
+
+html, body {
     height: 100%;
     font-size: 16px;
     line-height: 1.5;
-  }
-  
-  img {
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+img {
     max-width: 100%;
     height: auto;
-  }
-  
-  input, button, select, textarea {
+}
+
+input, button, select, textarea {
     background-color: transparent;
     font: inherit;
-  }
-  
-  button {
+}
+
+button {
     cursor: pointer;
-  }
-  
-  a {
+}
+
+a {
     color: inherit;
     cursor: pointer;
-  }
+}
+
+/* 괄호 아이콘 회전 */
+[data-svg="icons/icon-parenthesis"].end svg {
+    transform: rotate(180deg);
+}

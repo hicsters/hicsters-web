@@ -26,24 +26,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ④ 각 placeholder에 컴포넌트, 썸네일, 데이터 삽입 및 클릭 네비게이션
-  placeholders.forEach(div => {
+  for (const div of placeholders) {
     const id = div.dataset.id;
-    if (!id) return;
+    if (!id) continue;
 
     // a) 컴포넌트 HTML 주입
     div.innerHTML = templateHtml;
 
-    // b) 클릭 시 페이지 이동
+    // b) SVG 로더 실행
+    await loadSvgElements(div);
+
+    // c) 클릭 시 페이지 이동
     div.style.cursor = 'pointer';
     div.addEventListener('click', () => {
       window.location.href = `/contents/contents-${id}.html`;
     });
 
-    // c) 썸네일 배경 설정
+    // d) 썸네일 배경 설정
     const thumb = div.querySelector('.thumb');
     if (thumb) thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
 
-    // d) .card-series 아닌 경우 series-num li 숨김
+    // e) .card-series 아닌 경우 series-num li 숨김
     if (!div.classList.contains('card-series')) {
       const seriesLabel = div.querySelector('.series-num.lable');
       if (seriesLabel) {
@@ -52,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
 
-    // e) contents-data.js의 데이터 참조하여 텍스트 삽입
+    // f) contents-data.js의 데이터 참조하여 텍스트 삽입
     const data = window.cardData[id];
     if (data) {
       const mappings = {
@@ -67,5 +70,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (el && text != null) el.textContent = text;
       });
     }
-  });
+  }
 });
