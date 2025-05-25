@@ -12,61 +12,61 @@
 </script>
 <header id="header">
     <div class="header-container">
-        <a href="/index.html" class="logo">
-            <div data-svg="logo/logo-type" alt="힉스터즈 로고"></div>
+        <a href="/index.html" class="logo" aria-label="홈으로 이동">
+            <div data-svg="logo/logo-type" role="img" aria-label="힉스터즈 로고"></div>
         </a>
-       <button class="btn-menu">
-            <div data-svg="icons/icon-menu" alt="메뉴 열기"></div>
+       <button class="btn-menu" aria-label="메뉴 열기/닫기" aria-expanded="false" aria-controls="main-nav">
+            <div data-svg="icons/icon-menu" role="img" aria-label="메뉴 아이콘"></div>
        </button>
     </div>
 </header>
-<nav>
-    <ul>
-        <li class="menu">
-            <a href="/index.html"> 
+<nav id="main-nav" aria-label="메인 메뉴" aria-hidden="true">
+    <ul role="menu">
+        <li class="menu" role="none">
+            <a href="/index.html" role="menuitem"> 
                 <div class="menu-item">
                     <p class="menu-title">
                         Archive
                     </p>
                     <div class="contents-num">
-                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
-                        <p></p>
-                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
-                        <div data-svg="icons/icon-arrow" alt="아카이브 메뉴 이동"></div>
+                        <div data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 열기"></div>
+                        <p aria-label="아카이브 개수"></p>
+                        <div class="end" data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 닫기"></div>
+                        <div data-svg="icons/icon-arrow" role="img" aria-label="아카이브로 이동"></div>
                     </div>
                 </div>
             </a>
         </li>
-        <li class="divider"></li>
-        <li class="menu">
-            <a href="/about.html"> 
+        <li class="divider" role="separator"></li>
+        <li class="menu" role="none">
+            <a href="/about.html" role="menuitem"> 
                 <div class="menu-item">
                     <p class="menu-title">
                         About
                     </p>
-                    <div data-svg="icons/icon-arrow" alt="어바웃 메뉴 이동"></div>
+                    <div data-svg="icons/icon-arrow" role="img" aria-label="어바웃 페이지로 이동"></div>
                 </div>
             </a>
         </li>
-        <li class="divider"></li>
-        <li class="menu">
-            <a href="/contact.html"> 
+        <li class="divider" role="separator"></li>
+        <li class="menu" role="none">
+            <a href="/contact.html" role="menuitem"> 
                 <div class="menu-item">
                     <p class="menu-title">
                         Contact
                     </p>
-                    <div data-svg="icons/icon-arrow" alt="콘택트 메뉴 이동"></div>
+                    <div data-svg="icons/icon-arrow" role="img" aria-label="콘택트 페이지로 이동"></div>
                 </div>
             </a>
         </li>
-        <li class="divider"></li>
-        <li class="menu">
-            <a href="#none" id="random-gacha"> 
+        <li class="divider" role="separator"></li>
+        <li class="menu" role="none">
+            <a href="#none" id="random-gacha" role="menuitem" aria-label="랜덤 콘텐츠 보기"> 
                 <div class="menu-item">
                     <p class="menu-title">
                         Gacha!
                     </p>
-                    <div id="gacha-icon" data-svg="icons/icon-gacha" alt="랜덤 메뉴 이동"></div>
+                    <div id="gacha-icon" data-svg="icons/icon-gacha" role="img" aria-label="가챠 아이콘"></div>
                 </div>
             </a>
         </li>

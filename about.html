@@ -9,18 +9,18 @@
 </head>
 <body>
     <div id="header"></div>
-    <main>
-        <div class="about-intro">
+    <main role="main" aria-label="어바웃 페이지">
+        <div class="about-intro" aria-label="소개">
             <p>Can I get a,</p>
             <div class="about-title">
-                <div data-svg="logo/logo-type-full" alt="힉스터즈 카피"></div>
+                <div data-svg="logo/logo-type-full" role="img" aria-label="힉스터즈 로고"></div>
             </div>
         </div>
         <div class="about-body">
-            <div class="grenade">
-                <div data-svg="img_grenade" alt="이미지"></div>
+            <div class="grenade" aria-hidden="true">
+                <div data-svg="img_grenade" role="img" aria-label="수류탄 이미지"></div>
             </div>
-            <ul class="title">
+            <ul class="title" role="list">
                 <li>
                     <p>HOW</p>
                     <p>WE</p>
@@ -28,14 +28,14 @@
                 <li>
                     <p>CAME</p>
                     <div>
-                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
-                        <p class="sm">1/3</p>
-                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
+                        <div data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 열기"></div>
+                        <p class="sm" aria-label="섹션 1/3">1/3</p>
+                        <div class="end" data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 닫기"></div>
                     </div>
                     <p>?</p>
                 </li>
             </ul>
-            <ul class="text how">
+            <ul class="text how" role="list" aria-label="우리가 어떻게 시작했는지">
                 <li>
                     <p>
                         인간의 생리현상은 대개 목적이 있습니다. 하품은 산소를 공급해 뇌를 깨우고, 재채기는 이물질을 내보내 기관지를 보호합니다. 방귀는 가스를 배출해 복부의 팽창을 완화시키죠. 소기의 목적을 이루면 해당 현상은 자연스럽게 멈춥니다.
@@ -59,7 +59,7 @@
                     </div>
                 </li>
             </ul>
-            <ul class="title">
+            <ul class="title" role="list">
                 <li>
                     <p>WHO</p>
                     <p>WE</p>
@@ -67,16 +67,16 @@
                 <li>
                     <p>ARE</p>
                     <div>
-                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
-                        <p class="sm">2/3</p>
-                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
+                        <div data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 열기"></div>
+                        <p class="sm" aria-label="섹션 2/3">2/3</p>
+                        <div class="end" data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 닫기"></div>
                     </div>
                     <p>?</p>
                 </li>
             </ul>
-            <ul class="text who">
+            <ul class="text who" role="list" aria-label="우리는 누구인지">
                 <li>
-                    <ul class="jobs">
+                    <ul class="jobs" role="list" aria-label="구성원 직업 목록">
                         <li>
                             <div>Writer</div>
                             <div class="empty"></div>
@@ -142,7 +142,7 @@
                     <div data-svg="icons/icon-arrow-break" alt="줄바꿈"></div>
                 </li>
             </ul>
-            <div class="mask">
+            <div class="mask" aria-hidden="true">
                 <svg width="100%" height="100%" viewBox="0 0 320 364" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <mask id="mask-ellipse" maskUnits="userSpaceOnUse">
@@ -154,7 +154,7 @@
                     <image href="/images/img_crosswalk.png" width="100%" height="100%" mask="url(#mask-ellipse)" />
                 </svg>
             </div>
-            <ul class="title">
+            <ul class="title" role="list">
                 <li>
                     <p>WHAT</p>
                     <p>WE</p>
@@ -162,14 +162,14 @@
                 <li>
                     <p>DO</p>
                     <div>
-                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
-                        <p class="sm">3/3</p>
-                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
+                        <div data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 열기"></div>
+                        <p class="sm" aria-label="섹션 3/3">3/3</p>
+                        <div class="end" data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 닫기"></div>
                     </div>
                     <p>?</p>
                 </li>
             </ul>
-            <ul class="text what">
+            <ul class="text what" role="list" aria-label="우리가 하는 일">
                 <li>
                     <div>
                         <p>
@@ -199,7 +199,7 @@
             </ul>
         </div>
     </main>
-    <div id="footer"></div>
+    <div id="footer" role="contentinfo"></div>
     <script src="/components/header/header.js"></script>
     <script src="/components/footer/footer.js"></script>
     <script src="/scripts/common.js"></script>

@@ -146,6 +146,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 body.style.width = "100%";
                 body.style.top = `-${scrollY}px`;
 
+                // ARIA 상태 업데이트
+                menuBtn.setAttribute('aria-expanded', 'true');
+                nav.setAttribute('aria-hidden', 'false');
+
                 // 현재 상태 저장
                 previousState = captureState();
                 
@@ -162,11 +166,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                     svgContainer.dataset.svg = "icons/icon-close";
                     // SVG 다시 로드
                     await loadSvgElements(menuBtn);
+                    // 아이콘 변경 시 ARIA 레이블 업데이트
+                    svgContainer.setAttribute('aria-label', '메뉴 닫기');
                 }
                 
                 // 마지막으로 메뉴 표시
                 nav.classList.add("open");
             } else {
+                // ARIA 상태 업데이트
+                menuBtn.setAttribute('aria-expanded', 'false');
+                nav.setAttribute('aria-hidden', 'true');
+
                 // 먼저 메뉴 숨기기
                 nav.classList.remove("open");
                 
@@ -177,6 +187,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                     svgContainer.dataset.svg = "icons/icon-menu";
                     // SVG 다시 로드
                     await loadSvgElements(menuBtn);
+                    // 아이콘 변경 시 ARIA 레이블 업데이트
+                    svgContainer.setAttribute('aria-label', '메뉴 열기');
                 }
                 
                 // 이전 상태로 복원

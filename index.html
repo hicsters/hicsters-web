@@ -8,64 +8,64 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <section class="top">
-        <div id="header"></div>
-        <section class="tabs">
+    <section class="top" role="banner">
+        <div id="header" role="navigation" aria-label="메인 네비게이션"></div>
+        <section class="tabs" role="tablist" aria-label="콘텐츠 필터">
             <ui class="tab-list">
-                <li class="tab-item all active">
+                <li class="tab-item all active" role="tab" aria-selected="true" aria-controls="all-content">
                     <a href="none">All</a>
                 </li>
-                <li class="tab-item anthology">
+                <li class="tab-item anthology" role="tab" aria-selected="false" aria-controls="anthology-content">
                     <a href="none">Anthology</a>
                 </li>
-                <li class="tab-item series">
+                <li class="tab-item series" role="tab" aria-selected="false" aria-controls="series-content">
                     <a href="none">Series</a>
                 </li>
-                <li class="tab-item others">
+                <li class="tab-item others" role="tab" aria-selected="false" aria-controls="others-content">
                     <a href="none">Others</a>
                 </li>
             </ui>
         </section>
     </section>
-    <main>
-        <div class="contects-list">
-            <div class="card-anthology" data-id="034"></div>
-            <div class="card-anthology" data-id="033"></div>
-            <div class="card-anthology" data-id="032"></div>
-            <div class="card-anthology" data-id="031"></div>
-            <div class="card-anthology" data-id="030"></div>
-            <div class="card-anthology" data-id="029"></div>
-            <div class="card-anthology" data-id="028"></div>
-            <div class="card-anthology" data-id="027"></div>
-            <div class="card-anthology" data-id="026"></div>
-            <div class="card-anthology" data-id="025"></div>
-            <div class="card-anthology" data-id="024"></div>
-            <div class="card-anthology" data-id="023"></div>
-            <div class="card-anthology" data-id="022"></div>
-            <div class="card-anthology" data-id="021"></div>
-            <div class="card-anthology" data-id="020"></div>
-            <div class="card-anthology" data-id="019"></div>
-            <div class="card-anthology" data-id="018"></div>
-            <div class="card-anthology" data-id="017"></div>
-            <div class="card-anthology" data-id="016"></div>
-            <div class="card-anthology" data-id="015"></div>
-            <div class="card-anthology" data-id="014"></div>
-            <div class="card-anthology" data-id="013"></div>
-            <div class="card-anthology" data-id="012"></div>
-            <div class="card-anthology" data-id="011"></div>
-            <div class="card-anthology" data-id="010"></div>
-            <div class="card-anthology" data-id="009"></div>
-            <div class="card-anthology" data-id="008"></div>
-            <div class="card-anthology" data-id="007"></div>
-            <div class="card-anthology" data-id="006"></div>
-            <div class="card-anthology" data-id="005"></div>
-            <div class="card-anthology" data-id="004"></div>
-            <div class="card-anthology" data-id="003"></div>
-            <div class="card-others" data-id="002"></div>
-            <div class="card-others" data-id="001"></div>
+    <main role="main" aria-label="메인 콘텐츠">
+        <div class="contects-list" role="grid" aria-label="콘텐츠 목록">
+            <div class="card-anthology" data-id="034" role="gridcell" aria-label="앤솔로지 034"></div>
+            <div class="card-anthology" data-id="033" role="gridcell" aria-label="앤솔로지 033"></div>
+            <div class="card-anthology" data-id="032" role="gridcell" aria-label="앤솔로지 032"></div>
+            <div class="card-anthology" data-id="031" role="gridcell" aria-label="앤솔로지 031"></div>
+            <div class="card-anthology" data-id="030" role="gridcell" aria-label="앤솔로지 030"></div>
+            <div class="card-anthology" data-id="029" role="gridcell" aria-label="앤솔로지 029"></div>
+            <div class="card-anthology" data-id="028" role="gridcell" aria-label="앤솔로지 028"></div>
+            <div class="card-anthology" data-id="027" role="gridcell" aria-label="앤솔로지 027"></div>
+            <div class="card-anthology" data-id="026" role="gridcell" aria-label="앤솔로지 026"></div>
+            <div class="card-anthology" data-id="025" role="gridcell" aria-label="앤솔로지 025"></div>
+            <div class="card-anthology" data-id="024" role="gridcell" aria-label="앤솔로지 024"></div>
+            <div class="card-anthology" data-id="023" role="gridcell" aria-label="앤솔로지 023"></div>
+            <div class="card-anthology" data-id="022" role="gridcell" aria-label="앤솔로지 022"></div>
+            <div class="card-anthology" data-id="021" role="gridcell" aria-label="앤솔로지 021"></div>
+            <div class="card-anthology" data-id="020" role="gridcell" aria-label="앤솔로지 020"></div>
+            <div class="card-anthology" data-id="019" role="gridcell" aria-label="앤솔로지 019"></div>
+            <div class="card-anthology" data-id="018" role="gridcell" aria-label="앤솔로지 018"></div>
+            <div class="card-anthology" data-id="017" role="gridcell" aria-label="앤솔로지 017"></div>
+            <div class="card-anthology" data-id="016" role="gridcell" aria-label="앤솔로지 016"></div>
+            <div class="card-anthology" data-id="015" role="gridcell" aria-label="앤솔로지 015"></div>
+            <div class="card-anthology" data-id="014" role="gridcell" aria-label="앤솔로지 014"></div>
+            <div class="card-anthology" data-id="013" role="gridcell" aria-label="앤솔로지 013"></div>
+            <div class="card-anthology" data-id="012" role="gridcell" aria-label="앤솔로지 012"></div>
+            <div class="card-anthology" data-id="011" role="gridcell" aria-label="앤솔로지 011"></div>
+            <div class="card-anthology" data-id="010" role="gridcell" aria-label="앤솔로지 010"></div>
+            <div class="card-anthology" data-id="009" role="gridcell" aria-label="앤솔로지 009"></div>
+            <div class="card-anthology" data-id="008" role="gridcell" aria-label="앤솔로지 008"></div>
+            <div class="card-anthology" data-id="007" role="gridcell" aria-label="앤솔로지 007"></div>
+            <div class="card-anthology" data-id="006" role="gridcell" aria-label="앤솔로지 006"></div>
+            <div class="card-anthology" data-id="005" role="gridcell" aria-label="앤솔로지 005"></div>
+            <div class="card-anthology" data-id="004" role="gridcell" aria-label="앤솔로지 004"></div>
+            <div class="card-anthology" data-id="003" role="gridcell" aria-label="앤솔로지 003"></div>
+            <div class="card-others" data-id="002" role="gridcell" aria-label="기타 콘텐츠 002"></div>
+            <div class="card-others" data-id="001" role="gridcell" aria-label="기타 콘텐츠 001"></div>
         </div>        
     </main>
-    <div id="footer"></div>
+    <div id="footer" role="contentinfo" aria-label="페이지 푸터"></div>
     <script src="/scripts/contents-data.js"></script>
     <script src="/components/header/header.js"></script>
     <script src="/components/footer/footer.js"></script>

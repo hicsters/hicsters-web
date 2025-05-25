@@ -9,13 +9,13 @@
 </head>
 <body>
     <div id="header"></div>
-    <main>
-        <div class="letter-button">
-            <div data-svg="letter-button" alt="편지 단추"></div>
+    <main role="main" aria-label="콘택트 페이지">
+        <div class="letter-button" aria-hidden="true">
+            <div data-svg="letter-button" role="img" aria-label="편지 단추 이미지"></div>
             <div class="letter-line"></div>
         </div>
         <div class="contact-info">
-            <ul class="copy">
+            <ul class="copy" role="list" aria-label="연락처 소개">
                 <li>
                     <p>Would</p>
                     <p>You</p>
@@ -23,9 +23,9 @@
                 <li>
                     <p>Like</p>
                     <div class="md">
-                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
+                        <div data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 열기"></div>
                         <p class="sm">우리가 궁금해요?</p>
-                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
+                        <div class="end" data-svg="icons/icon-parenthesis" role="img" aria-label="괄호 닫기"></div>
                     </div>
                     <p>to</p>
                 </li>
@@ -34,21 +34,21 @@
                     <p>Us?</p>
                 </li>
             </ul>
-            <ul class="email">
+            <ul class="email" role="list" aria-label="이메일 정보">
                 <li>
                     <p>e-mail</p>
                 </li>
                 <li>
-                    <p>marooenads@gmail.com</p>
+                    <p id="emailAddress">marooenads@gmail.com</p>
                     <div class="link">
-                        <a href="#none" id="sendEmail">Send</a>
-                        <a href="#none" id="copyEmail">Copy</a>
+                        <a href="#none" id="sendEmail" role="button" aria-label="이메일 보내기">Send</a>
+                        <a href="#none" id="copyEmail" role="button" aria-label="이메일 주소 복사">Copy</a>
                     </div>
                 </li>
             </ul>
         </div>
     </main>
-    <div id="footer"></div>
+    <div id="footer" role="contentinfo"></div>
     <script src="/components/header/header.js"></script>
     <script src="/components/footer/footer.js"></script>
     <script src="/scripts/contact.js"></script>

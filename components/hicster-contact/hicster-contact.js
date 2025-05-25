@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!container) throw new Error('#hicster-contact 엘리먼트를 찾을 수 없습니다.');
         container.innerHTML = template;
 
+        // SVG 로더 실행
+        await loadSvgElements(container);
+
         const contactData = {
             "hicster-01": {
                 name:  "고나",
@@ -83,17 +86,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         const introEl = container.querySelector('.hicster-copy p');
         const linkEl  = container.querySelector('.contact-btn a');
         const imgEl   = container.querySelector('.profile image');
+        const mailIconEl = container.querySelector('[data-svg="icons/icon-mail"]');
 
-        if (nameEl)  nameEl.textContent  = data.name;
-        if (introEl) introEl.textContent = data.intro;
+        if (nameEl)  {
+            nameEl.textContent = data.name;
+            nameEl.setAttribute('aria-label', `작성자 이름: ${data.name}`);
+        }
+        if (introEl) {
+            introEl.textContent = data.intro;
+            introEl.setAttribute('aria-label', `작성자 소개: ${data.intro}`);
+        }
         if (linkEl) {
+            linkEl.setAttribute('aria-label', `${data.name}에게 이메일 보내기`);
             // 메일 버튼 클릭 시 페이지 스크롤 방지 및 메일 클라이언트 열기
             linkEl.addEventListener('click', e => {
                 e.preventDefault();
                 window.open(`mailto:${data.email}`);
             });
         }
-        if (imgEl)   imgEl.setAttribute('href', data.image);
+        if (imgEl) {
+            imgEl.setAttribute('href', data.image);
+            imgEl.setAttribute('aria-label', `${data.name}의 프로필 이미지`);
+        }
+        if (mailIconEl) {
+            mailIconEl.setAttribute('role', 'img');
+            mailIconEl.setAttribute('aria-label', '이메일 아이콘');
+        }
     } catch (err) {
         console.error('hicster-contact 로딩 에러:', err);
     }

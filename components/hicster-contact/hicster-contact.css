@@ -23,7 +23,11 @@
     gap: 4px;
     align-items: center;
 }
-.contact-btn img{
+.contact-btn div{
+    width: 24px;
+    height: 24px;
+}
+.contact-btn svg{
     width: 24px;
     height: 24px;
 }

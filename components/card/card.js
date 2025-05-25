@@ -36,22 +36,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     // b) SVG 로더 실행
     await loadSvgElements(div);
 
-    // c) 클릭 시 페이지 이동
-    div.style.cursor = 'pointer';
+    // c) 클릭 시 페이지 이동 및 접근성 속성 추가
+    div.setAttribute('role', 'button');
+    div.setAttribute('tabindex', '0');
+    div.setAttribute('aria-label', `콘텐츠 ${id} 자세히 보기`);
+    
+    // 키보드 접근성 추가
+    div.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = `/contents/contents-${id}.html`;
+      }
+    });
+    
     div.addEventListener('click', () => {
       window.location.href = `/contents/contents-${id}.html`;
     });
 
     // d) 썸네일 배경 설정
     const thumb = div.querySelector('.thumb');
-    if (thumb) thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
+    if (thumb) {
+      thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
+      thumb.setAttribute('role', 'img');
+      thumb.setAttribute('aria-label', `콘텐츠 ${id} 썸네일`);
+    }
 
     // e) .card-series 아닌 경우 series-num li 숨김
     if (!div.classList.contains('card-series')) {
       const seriesLabel = div.querySelector('.series-num.lable');
       if (seriesLabel) {
         const seriesLi = seriesLabel.closest('li.contents-detail');
-        if (seriesLi) seriesLi.style.display = 'none';
+        if (seriesLi) {
+          seriesLi.style.display = 'none';
+          seriesLi.setAttribute('aria-hidden', 'true');
+        }
       }
     }
 
@@ -59,15 +77,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = window.cardData[id];
     if (data) {
       const mappings = {
-        '.quote':            data.quote,
-        '.title.value':      data.title,
-        '.writer.value':     data.writer,
-        '.theme.value':      data.theme,
-        '.series-num.value': data.seriesValue
+        '.quote': { selector: '.quote', text: data.quote, label: '인용구' },
+        '.title.value': { selector: '.title.value', text: data.title, label: '제목' },
+        '.writer.value': { selector: '.writer.value', text: data.writer, label: '작성자' },
+        '.theme.value': { selector: '.theme.value', text: data.theme, label: '주제' },
+        '.series-num.value': { selector: '.series-num.value', text: data.seriesValue, label: '시리즈 번호' }
       };
-      Object.entries(mappings).forEach(([selector, text]) => {
+      
+      Object.values(mappings).forEach(({ selector, text, label }) => {
         const el = div.querySelector(selector);
-        if (el && text != null) el.textContent = text;
+        if (el && text != null) {
+          el.textContent = text;
+          el.setAttribute('aria-label', `${label}: ${text}`);
+        }
       });
     }
   }
