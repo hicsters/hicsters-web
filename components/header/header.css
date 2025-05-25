@@ -1,7 +1,56 @@
 :root {
     --bg-color: #ffffff;           
     --text-color: #1a1a1a;        
+    --font-family: 'Pretendard Variable', sans-serif; 
 }
+
+/* 초기 로고 숨김 상태 */
+.about header .logo,
+.contact header .logo {
+    display: none;
+}
+
+/* 로고 표시 상태 */
+.about header.show-logo .logo,
+.contact header.show-logo .logo {
+    display: block;
+}
+
+/* 페이지별 메뉴 버튼 초기 상태 */
+.about header .btn-menu {
+    color: white;
+}
+
+.contact header .btn-menu {
+    color: var(--black);
+}
+
+/* contents 페이지 초기 상태 */
+body[class*="contents-"] header .logo,
+body[class*="contents-"] header .btn-menu {
+    color: white;
+}
+
+body[class*="contents-"] header .logo svg,
+body[class*="contents-"] header .btn-menu svg {
+    fill: currentColor;
+}
+
+/* contents 페이지 스크롤 상태 */
+body[class*="contents-"] header.bg {
+    background-color: var(--bg-color);
+}
+
+body[class*="contents-"] header.bg .logo,
+body[class*="contents-"] header.bg .btn-menu {
+    color: var(--text-color);
+}
+
+/* 스크롤 시 메뉴 버튼 색상 */
+.about header.bg .btn-menu {
+    color: var(--text-color);
+}
+
 header{
     width: 100%;
     height: 64px;
@@ -14,27 +63,57 @@ header{
 .header-container{
     width: 100%;
     height: 100%;
-    display: flex; 
-    justify-content: space-between; 
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     overflow: hidden;
 }
 .header-container *{
     flex-shrink: 0;
 }
-.logo{
+.header-container .logo {
     width: auto;
     height: 20px;
+    color: var(--black);   
+    grid-column: 1;
 }
-header.hideLogo .logo img{
+.header-container .logo.white {
+    color: white;
+}
+.header-container .logo svg {
+    height: 20px;
+    width: auto;
+}
+.header-container .logo svg path {
+    fill: currentColor;
+}
+header.hideLogo .logo {
     display: none;
 }
 header.bg{
-    background-color: var(--bg-color);
+    background-color: white;
 }
-.btn-menu > img{
+.header-container .btn-menu {
     width: 32px;
     height: 32px;
+    color: var(--black);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    grid-column: 3;
+    justify-self: end;
+}
+.header-container .btn-menu.white {
+    color: white
+}
+.header-container .btn-menu svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+.header-container .btn-menu svg path {
+    fill: currentColor;
 }
 nav{
     width: 100%;
@@ -50,7 +129,10 @@ nav{
 }
 nav.open {
     display: flex;
-  }
+}
+nav svg {
+    color: white;
+}
 li.menu a{
     display: flex;
     justify-content: space-between;
@@ -74,7 +156,14 @@ nav ul{
     align-self: flex-end;
     width: 100%;
 }
-li.menu img{
+.menu-item {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu-item svg {
     width: auto;
     height: 32px;
     flex-shrink: 0;
@@ -82,20 +171,23 @@ li.menu img{
 .contents-num{
     display: flex;
     align-items: center;
+    gap: 8px;
+    height: 32px;
+}
+.contents-num *{
+    height: 32px;
 }
 .contents-num p{
     color: white;
     font-size: 20px;
     font-weight: 500;
-}
-.contents-num img.end{
-    transform: rotate(180deg);
-    margin-right: 8px;
+    line-height: 32px;
 }
 #gacha-icon {
+    height: 32px;
     transition: transform 0.6s ease-in-out;
-  }
+}
   
 #gacha-icon.spin {
-transform: rotate(270deg);
+    transform: rotate(270deg);
 }

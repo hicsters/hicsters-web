@@ -7,8 +7,9 @@ main{
     display: flex;
     position: relative;
     margin-bottom: 80px;
+    justify-content: center;
 }
-.letter-button img{
+.letter-button svg{
     margin: 0 auto;
     transform: translateX(9px);
 }
@@ -35,13 +36,12 @@ ul.copy li .md{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 4px;
 }
-ul.copy li .md img{
+ul.copy li .md [data-svg],
+ul.copy li .md img {
     width: 12px;
     height: 24px;
-}
-ul.copy li .md img.close{
-    transform: rotate(180deg);
 }
 ul.copy p{ 
     font-size: 64px;

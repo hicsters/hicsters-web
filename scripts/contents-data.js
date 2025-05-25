@@ -8,7 +8,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-16",
-        bgColor:     "#ffffff",          
+        bgColor:     "#111111",
+        textColor:   "#ffffff"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -20,7 +21,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-16",
-        bgColor:     "#a09f93",          
+        bgColor:     "#a09f93",
+        textColor:   "red",
         fontFamily:  "'Maruburi', serif"
     },
   
@@ -32,7 +34,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -44,7 +47,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -56,7 +60,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -68,7 +73,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -80,7 +86,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -92,7 +99,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -104,7 +112,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-25",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -116,7 +125,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-03-10",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -128,19 +138,21 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-10",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
     "012": {
-        title:       "의심 ‘혹은’ 확신",
+        title:       "의심 '혹은' 확신",
         quote:       "아이 혹은 어른의 중간정도 되는 시기인 것 같다.",
         writer:      "라근",
         theme:       "2nd: 의심 혹은 확신",
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-10",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -152,7 +164,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-10",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -164,7 +177,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-10",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -176,7 +190,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Story",
         date:        "2024-03-24",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -188,7 +203,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-24",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -200,7 +216,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-24",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -212,8 +229,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Story",
         date:        "2024-03-24",
-      fontType:    "",
-              Color:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -225,7 +242,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-03-24",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -237,7 +255,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-04-07",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   
@@ -249,7 +268,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-04-07",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -261,7 +281,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-04-07",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -273,7 +294,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-04-07",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -285,7 +307,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Poetry",
         date:        "2024-04-21",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -297,7 +320,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-04-21",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -309,7 +333,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-04-21",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -321,7 +346,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-04-21",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -333,7 +359,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-05-05",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -345,7 +372,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-05-05",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -357,7 +385,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-05-05",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -369,7 +398,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Poetry",
         date:        "2024-05-19",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -381,7 +411,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Research",
         date:        "2024-05-19",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -393,7 +424,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Fiction",
         date:        "2024-05-19",
-        bgColor:     "#ffffff",          
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
 
@@ -404,6 +436,8 @@ window.cardData = {
         theme:       "8th: 시험",
         seriesNum:   "",      
         format:      "Essay",
-        date:        "2024-06-02"
+        date:        "2024-06-02",
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
     }
-    };
+};

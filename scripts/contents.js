@@ -71,7 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollBar.style.width = `${percent}%`;
 
       const infoHeight = infoSection ? infoSection.offsetHeight : 0;
-      scrollTrack.style.display = scrollTop > infoHeight ? 'block' : 'none';
+      const threshold = winHeight - (infoHeight + 64);
+      scrollTrack.style.display = scrollTop >= threshold ? 'block' : 'none';
     };
     window.addEventListener('scroll', updateScrollUI);
     updateScrollUI();
@@ -83,8 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const id   = pathMatch[1];
     const data = window.cardData[id];
     if (data) {
-      // a) CSS 변수로 배경색 & 폰트 패밀리 설정
+      // a) CSS 변수로 배경색 & 텍스트 색상 & 폰트 패밀리 설정
       if (data.bgColor)    root.style.setProperty('--bg-color', data.bgColor);
+      if (data.textColor)  root.style.setProperty('--text-color', data.textColor);
       if (data.fontFamily) root.style.setProperty('--font-family', data.fontFamily);
 
       // b) 문서 제목 설정
