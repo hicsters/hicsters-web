@@ -12,8 +12,11 @@ div.about-intro p{
     font-weight: 200;
     color: white;
 }
-div.about-intro img{
+div.about-intro [data-svg],
+div.about-intro svg{
     width: 100%;
+    height: auto;
+    color: white;
 }
 div.about-body{
     width: 100%;
@@ -22,8 +25,10 @@ div.about-body{
 .grenade, .mask{
     margin: 80px 0px;
 }
-.grenade img {
+.grenade [data-svg],
+.grenade svg {
     width: 100%;
+    height: auto;
 }
 .mask{
     width: 100%;
@@ -64,12 +69,10 @@ ul.title > li:last-child div{
     align-items: center;
     gap: 8px;
 }
-ul.title > li:last-child div img{
+ul.title > li:last-child [data-svg],
+ul.title > li:last-child img{
     width: 12px;
     height: 24px;
-}
-img.close{
-    transform: rotate(180deg);
 }
 ul.text{
     display: flex;
@@ -80,9 +83,11 @@ ul.text p{
     font-weight: 500;
     text-indent: 48px;
 }
+ul.text [data-svg],
 ul.text img{
     width: 24px;
 }
+ul.text [data-svg].symbol,
 ul.text img.symbol{
     width: 100px;
     height: 80px;

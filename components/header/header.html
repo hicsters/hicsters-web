@@ -1,11 +1,22 @@
 <link rel="stylesheet" href="/components/header/header.css">
+<script>
+// 페이지 로드 전에 초기 상태 설정
+(function() {
+    const path = location.pathname;
+    const isAbout = path.includes('about.html');
+    const isContact = path.includes('contact.html');
+    if (isAbout || isContact) {
+        document.documentElement.classList.add('hide-logo-init');
+    }
+})();
+</script>
 <header id="header">
     <div class="header-container">
         <a href="/index.html" class="logo">
-            <img src="/images/logo/logo-type-bk.svg" alt="힉스터즈 로고">
+            <div data-svg="logo/logo-type" alt="힉스터즈 로고"></div>
         </a>
        <button class="btn-menu">
-            <img src="/images/icons/icon-menu-bk.svg" alt="메뉴 열기">
+            <div data-svg="icons/icon-menu" alt="메뉴 열기"></div>
        </button>
     </div>
 </header>
@@ -13,42 +24,50 @@
     <ul>
         <li class="menu">
             <a href="/index.html"> 
-                <p class="menu-title">
-                    Archive
-                </p>
-                <div class="contents-num">
-                    <img src="/images/icons/icon-parenthesis-wt.svg" alt="괄호 열고">
-                    <p></p>
-                    <img class="end" src="/images/icons/icon-parenthesis-wt.svg" alt="괄호 닫고">
-                    <img src="/images/icons/icon-arrow-wt.svg" alt="아카이브 메뉴 이동">
+                <div class="menu-item">
+                    <p class="menu-title">
+                        Archive
+                    </p>
+                    <div class="contents-num">
+                        <div data-svg="icons/icon-parenthesis" alt="괄호 열고"></div>
+                        <p></p>
+                        <div class="end" data-svg="icons/icon-parenthesis" alt="괄호 닫고"></div>
+                        <div data-svg="icons/icon-arrow" alt="아카이브 메뉴 이동"></div>
+                    </div>
                 </div>
             </a>
         </li>
         <li class="divider"></li>
         <li class="menu">
             <a href="/about.html"> 
-                <p class="menu-title">
-                    About
-                </p>
-                <img src="/images/icons/icon-arrow-wt.svg" alt="어바웃 메뉴 이동">
+                <div class="menu-item">
+                    <p class="menu-title">
+                        About
+                    </p>
+                    <div data-svg="icons/icon-arrow" alt="어바웃 메뉴 이동"></div>
+                </div>
             </a>
         </li>
         <li class="divider"></li>
         <li class="menu">
             <a href="/contact.html"> 
-                <p class="menu-title">
-                    Contact
-                </p>
-                <img src="/images/icons/icon-arrow-wt.svg" alt="콘택트 메뉴 이동">
+                <div class="menu-item">
+                    <p class="menu-title">
+                        Contact
+                    </p>
+                    <div data-svg="icons/icon-arrow" alt="콘택트 메뉴 이동"></div>
+                </div>
             </a>
         </li>
         <li class="divider"></li>
         <li class="menu">
             <a href="#none" id="random-gacha"> 
-                <p class="menu-title">
-                    Gacha!
-                </p>
-                <img id="gacha-icon" src="/images/icons/icon-gacha-wt.svg" alt="랜덤 메뉴 이동">
+                <div class="menu-item">
+                    <p class="menu-title">
+                        Gacha!
+                    </p>
+                    <div id="gacha-icon" data-svg="icons/icon-gacha" alt="랜덤 메뉴 이동"></div>
+                </div>
             </a>
         </li>
     </ul>

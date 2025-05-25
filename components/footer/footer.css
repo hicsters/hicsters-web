@@ -13,15 +13,18 @@ footer{
     display: block;
     width: 40px;
     height: 32px;
+    color: white;
 }
-
+.footer-symbol svg{
+    width: 100%;
+    height: auto;
+}
 .footer-nav{
     width:100%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
-
 }
 .footer-menu{
     display: flex;
