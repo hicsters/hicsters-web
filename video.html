@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll Synced PNG Sequence</title>
+  <style>
+    /* 페이지 전체 스크롤 확보 (더미 높이) */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    /* 이미지 시퀀스 컨테이너 */
+    .container {
+      position: relative;
+      width: 100%;
+      height: 200vh;
+      background-color: aqua;
+    }
+    .motion {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #1a1a1a;
+    }
+    /* PNG 프레임 */
+    #frame {
+      width: 100vw;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: auto;
+      /* background-color: blanchedalmond; */
+    }
+    .text {
+      height: 200vh;
+      padding: 40px;
+      background-color: rgb(158, 158, 255);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="motion">
+      <img id="frame" src="ScrollAnim/000.png" alt="PNG Frame" />
+    </div>
+  </div>
+  <div class="text">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+  </div>
+  <script>
+    (() => {
+      const frameEl  = document.getElementById('frame');
+      const motionEl = document.querySelector('.motion');
+      const totalFrames = 121;                    // 000~120
+      const vhUnit      = window.innerHeight / 100; // 1vh 당 픽셀 수
+      let lastIdx      = -1;
+    
+      // vhScrolled 단위로 환산했을 때 변화 시작·끝 지점 (0~100vh)
+      const startScroll = 100 * 2/3;  // 66.6667vh
+      const endScroll   = 100;        // 100vh
+    
+      // 보간용 RGB
+      const startRGB = { r: 0x1a, g: 0x1a, b: 0x1a };
+      const endRGB   = { r: 0xff, g: 0xff, b: 0xff };
+    
+      window.addEventListener('scroll', () => {
+        const scrollY    = window.scrollY;
+        const vhScrolled = scrollY / vhUnit;      // 0~100
+    
+        // 1) PNG 프레임 전환
+        const idx = Math.min(totalFrames - 1, Math.floor(vhScrolled));
+        if (idx !== lastIdx) {
+          lastIdx = idx;
+          frameEl.src = `ScrollAnim/${String(idx).padStart(3, '0')}.png`;
+        }
+    
+        // 2) 배경색 보간 (스크롤 66.7vh→100vh 구간만)
+        let t = (vhScrolled - startScroll) / (endScroll - startScroll);
+        t = Math.min(1, Math.max(0, t));  // clamp 0~1
+        const r = Math.round(startRGB.r + t * (endRGB.r - startRGB.r));
+        const g = Math.round(startRGB.g + t * (endRGB.g - startRGB.g));
+        const b = Math.round(startRGB.b + t * (endRGB.b - startRGB.b));
+        motionEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      });
+    })();
+</script>
+    
+    
+</body>
+</html>

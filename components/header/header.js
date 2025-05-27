@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         };
   
         const applyAboutScrollState = () => {
-            const scrolled = window.scrollY >= window.innerHeight;
+            const scrolled = window.scrollY >= window.innerHeight * 1.5;  
             header.classList.toggle("bg", scrolled);
             header.classList.toggle("show-logo", scrolled);
         };
