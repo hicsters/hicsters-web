@@ -8,8 +8,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-16",
-        bgColor:     "#111111",
-        textColor:   "#ffffff"
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a"
         // fontFamily:  "'Maruburi', serif"
     },
   

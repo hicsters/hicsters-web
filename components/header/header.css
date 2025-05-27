@@ -137,12 +137,14 @@ li.menu a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 500;
     height: 56px;
 }
 nav p.menu-title{
     color: white;
     font-size: 40px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 nav li.divider{
     width: 100%;
@@ -182,6 +184,7 @@ nav ul{
     font-size: 20px;
     font-weight: 500;
     line-height: 32px;
+    font-family: 'DM Sans', sans-serif;
 }
 #gacha-icon {
     height: 32px;

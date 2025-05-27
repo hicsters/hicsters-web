@@ -47,6 +47,8 @@ ul.copy p{
     font-size: 64px;
     line-height: 64px;
     font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 @media (max-width: 360px) {
     ul.copy p {

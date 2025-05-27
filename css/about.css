@@ -11,6 +11,8 @@ div.about-intro p{
     font-size: 56px;
     font-weight: 200;
     color: white;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 div.about-intro [data-svg],
 div.about-intro svg{
@@ -49,6 +51,8 @@ ul.title p{
     font-size: 64px;
     line-height: 64px;
     font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
 
 }
 ul.title{

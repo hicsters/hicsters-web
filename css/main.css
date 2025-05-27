@@ -23,7 +23,7 @@ section.top{
     padding: 0 16px;
     font-size: 16px;
     font-weight: 600;
-    line-height: 40px;
+    line-height: 36px;
     border: 2px solid white;
 }
 .tab-item.active > a{
