@@ -50,7 +50,7 @@ ul.copy p{
     font-family: 'DM Sans', sans-serif;
     letter-spacing: -0.02em;
 }
-@media (max-width: 360px) {
+@media (max-width: 374px) {
     ul.copy p {
       font-size: 56px;
     }

@@ -142,7 +142,7 @@ li.menu a{
 nav p.menu-title{
     color: white;
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 300;
     font-family: 'DM Sans', sans-serif;
     letter-spacing: -0.02em;
 }
@@ -182,7 +182,7 @@ nav ul{
 .contents-num p{
     color: white;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 32px;
     font-family: 'DM Sans', sans-serif;
 }
