@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters: About</title>
     <script src="/components/head/head.js" defer></script>
+    <!-- Rive -->
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>   
     <link rel="stylesheet" href="/css/about.css">
 </head>
 <body>
@@ -77,7 +79,7 @@
                 </li>
             </ul>
             <ul class="text who" role="list" aria-label="우리는 누구인지">
-                <li>
+                <!-- <li>
                     <ul class="jobs" role="list" aria-label="구성원 직업 목록">
                         <li>
                             <div>Writer</div>
@@ -135,7 +137,7 @@
                             <div class="empty"></div>
                         </li>
                     </ul>
-               </li>
+               </li> -->
                 <li class="column">
                     <p>
                         글을 쓰고 싶은 이들 아무나 모였습니다. 생업은 다양하지만 딸꾹거리는 모습이 제법 닮아있어요. 전공을 살리지 못했어도 문과의 피는 여전히 흐르고 있습니다. 자율과 규율의 경계를 찾아 헤매며, 창작욕으로 엮인 연대는 느슨하지만 길게 이어집니다. 2023년 11월, 어쩌면 그보다 이전부터.
@@ -143,8 +145,11 @@
                     <div data-svg="icons/icon-arrow-break" alt="줄바꿈"></div>
                     <div data-svg="icons/icon-arrow-break" alt="줄바꿈"></div>
                 </li>
+                <li>
+                    <canvas id="rolling"></canvas>
+                </li>
             </ul>
-            <div class="mask" aria-hidden="true">
+            <!-- <div class="mask" aria-hidden="true">
                 <svg width="100%" height="100%" viewBox="0 0 320 364" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <mask id="mask-ellipse" maskUnits="userSpaceOnUse">
@@ -155,7 +160,7 @@
                     </defs>
                     <image href="/images/img_crosswalk.png" width="100%" height="100%" mask="url(#mask-ellipse)" />
                 </svg>
-            </div>
+            </div> -->
             <ul class="title" role="list">
                 <li>
                     <p>WHAT</p>

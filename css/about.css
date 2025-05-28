@@ -124,7 +124,7 @@ ul.how li:last-child div{
 ul.how li>p{
     margin-bottom: 8px;
 }
-ul.jobs{
+/* ul.jobs{
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -143,6 +143,12 @@ ul.jobs li div.right{
 }
 ul.jobs li div.emoji{
     font-size: 20px;
+} */
+canvas#rolling{
+    width: 100vw;
+    height: 157.5vw;
+    margin-left: -20px;
+    margin: 24px 0px 80px -20px;
 }
 li.column{
     display: flex;

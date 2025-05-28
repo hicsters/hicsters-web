@@ -30,5 +30,17 @@
     const b = Math.round(startRGB.b + t * (endRGB.b - startRGB.b));
     bgEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
   });
+
+  const riveInstance = new rive.Rive({
+    src: '/images/riv/about-rolling.riv',                  
+    canvas: document.getElementById('rolling'),
+    autoplay: true,
+    layout: new rive.Layout({
+      fit: rive.Fit.cover,                     
+      alignment: rive.Alignment.center         
+    }),
+    onLoad: () => riveInstance.resizeDrawingSurfaceToCanvas()
+  });
+
 })();
 
