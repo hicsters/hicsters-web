@@ -8,12 +8,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // ② 컨테이너와 placeholder 요소 선택
+  // ② 컨테이너 선택
   const container = document.querySelector(".contects-list");
   if (!container) return;
-  const placeholders = container.querySelectorAll("div[data-id]");
 
-  // ③ 단일 컴포넌트 템플릿 fetch
+  // ③ 전체 콘텐츠 ID 배열 생성 및 셔플
+  const allContentIds = Object.keys(window.cardData);
+  const shuffledIds = shuffleArray([...allContentIds]);
+
+  // ④ 컨테이너 비우기
+  container.innerHTML = '';
+
+  // ⑤ 단일 컴포넌트 템플릿 fetch
   const componentUrl = "/components/card/card.html";
   let templateHtml = "";
   try {
@@ -25,11 +31,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // ④ 각 placeholder에 컴포넌트, 썸네일, 데이터 삽입 및 클릭 네비게이션
-  for (const div of placeholders) {
-    const id = div.dataset.id;
-    if (!id) continue;
-
+  // ⑥ 셔플된 ID로 카드 생성
+  for (const id of shuffledIds) {
+    const data = window.cardData[id];
+    
+    // 새로운 div 요소 생성
+    const div = document.createElement('div');
+    div.setAttribute('data-id', id);
+    div.setAttribute('role', 'gridcell');
+    div.setAttribute('aria-label', data.type === 'others' ? `기타 콘텐츠 ${id}` : `앤솔로지 ${id}`);
+    
     // a) 컴포넌트 HTML 주입
     div.innerHTML = templateHtml;
 
@@ -41,7 +52,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     div.setAttribute('tabindex', '0');
     div.setAttribute('aria-label', `콘텐츠 ${id} 자세히 보기`);
     
-    // 키보드 접근성 추가
     div.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -61,30 +71,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       thumb.setAttribute('aria-label', `콘텐츠 ${id} 썸네일`);
     }
 
-    // e) .card-series 아닌 경우 series-num li 숨김
-    if (!div.classList.contains('card-series')) {
-      const seriesLabel = div.querySelector('.series-num.lable');
-      if (seriesLabel) {
-        const seriesLi = seriesLabel.closest('li.contents-detail');
-        if (seriesLi) {
-          seriesLi.style.display = 'none';
-          seriesLi.setAttribute('aria-hidden', 'true');
-        }
-      }
-    }
-
-    // f) contents-data.js의 데이터 참조하여 텍스트 삽입
-    const data = window.cardData[id];
+    // e) contents-data.js의 데이터 참조하여 텍스트 삽입
     if (data) {
+      // series-num li 요소 처리 - data.type으로 직접 체크
+      const seriesLi = div.querySelector('li.series-num');
+      if (seriesLi && data.type !== 'series') {  // type이 series가 아닌 경우
+        seriesLi.remove();  // li 요소 제거
+      }
+
+      // 나머지 요소들 처리
       const mappings = {
-        '.quote': { selector: '.quote', text: data.quote, label: '인용구' },
-        '.title.value': { selector: '.title.value', text: data.title, label: '제목' },
-        '.writer.value': { selector: '.writer.value', text: data.writer, label: '작성자' },
-        '.theme.value': { selector: '.theme.value', text: data.theme, label: '주제' },
-        '.series-num.value': { selector: '.series-num.value', text: data.seriesValue, label: '시리즈 번호' }
+        '.quote': { text: data.quote, label: '인용구' },
+        '.title.value': { text: data.title, label: '제목' },
+        '.writer.value': { text: data.writer, label: '작성자' },
+        '.theme.value': { text: data.theme, label: '주제' }
       };
       
-      Object.values(mappings).forEach(({ selector, text, label }) => {
+      Object.entries(mappings).forEach(([selector, { text, label }]) => {
         const el = div.querySelector(selector);
         if (el && text != null) {
           el.textContent = text;
@@ -92,5 +95,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
     }
+
+    // 컨테이너에 카드 추가
+    container.appendChild(div);
   }
 });
+
+// Fisher-Yates 셔플 알고리즘
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}

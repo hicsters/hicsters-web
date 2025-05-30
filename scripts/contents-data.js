@@ -1,16 +1,17 @@
-// contents-data.js
+
 window.cardData = {
     "001": {
         title:       "그냥",
         quote:       "그냥 그렇게 살기 싫어요.",
         writer:      "라근",
         theme:       "어른",
-        seriesNum:   "",      
+        seriesNum:   "00/00",      
         format:      "Essay",
         date:        "2024-02-16",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "series"
     },
   
     "002": {
@@ -23,7 +24,8 @@ window.cardData = {
         date:        "2024-02-16",
         bgColor:     "#a09f93",
         textColor:   "red",
-        fontFamily:  "'Maruburi', serif"
+        fontFamily:  "'Maruburi', serif",
+        type:        "others"
     },
   
     "003": {
@@ -35,8 +37,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "004": {
@@ -48,8 +51,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "005": {
@@ -61,8 +65,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "006": {
@@ -74,8 +79,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "007": {
@@ -87,8 +93,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "008": {
@@ -100,8 +107,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "009": {
@@ -113,8 +121,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-02-25",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "010": {
@@ -126,8 +135,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-03-10",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "011": {
@@ -139,8 +149,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-10",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "012": {
@@ -152,8 +163,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-10",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "013": {
@@ -165,8 +177,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-10",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "014": {
@@ -178,8 +191,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-10",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "015": {
@@ -191,8 +205,9 @@ window.cardData = {
         format:      "Story",
         date:        "2024-03-24",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "016": {
@@ -204,8 +219,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-24",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "017": {
@@ -217,8 +233,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-24",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "018": {
@@ -230,8 +247,9 @@ window.cardData = {
         format:      "Story",
         date:        "2024-03-24",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "019": {
@@ -243,8 +261,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-03-24",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "020": {
@@ -256,8 +275,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-04-07",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
   
     "021": {
@@ -269,8 +289,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-04-07",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "022": {
@@ -282,8 +303,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-04-07",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "023": {
@@ -295,8 +317,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-04-07",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "024": {
@@ -308,8 +331,9 @@ window.cardData = {
         format:      "Poetry",
         date:        "2024-04-21",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "025": {
@@ -321,8 +345,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-04-21",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "026": {
@@ -334,8 +359,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-04-21",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "027": {
@@ -347,8 +373,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-04-21",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "028": {
@@ -360,8 +387,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-05-05",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "029": {
@@ -373,8 +401,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-05-05",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "030": {
@@ -386,8 +415,9 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-05-05",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "031": {
@@ -399,8 +429,9 @@ window.cardData = {
         format:      "Poetry",
         date:        "2024-05-19",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "032": {
@@ -412,8 +443,9 @@ window.cardData = {
         format:      "Research",
         date:        "2024-05-19",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "033": {
@@ -425,8 +457,9 @@ window.cardData = {
         format:      "Fiction",
         date:        "2024-05-19",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
-        // fontFamily:  "'Maruburi', serif"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     },
 
     "034": {
@@ -438,6 +471,8 @@ window.cardData = {
         format:      "Essay",
         date:        "2024-06-02",
         bgColor:     "#ffffff",
-        textColor:   "#1a1a1a"
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "anthology"
     }
 };
