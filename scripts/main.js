@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 1. 초기 데이터 설정 - 페이지 로드 시 한 번만 실행
   const allContentIds = Object.keys(window.cardData);
   const shuffledIds = shuffleArray([...allContentIds]);  // 초기 랜덤 순서
-  const sortedIds = [...allContentIds].sort((a, b) => Number(b) - Number(a));  // 정렬된 순서
+  
+  // 정렬 로직 수정
+  const sortedIds = [...allContentIds].sort((a, b) => {
+    // 문자열 기반 자연스러운 정렬 (숫자를 올바르게 처리)
+    return b.localeCompare(a, undefined, { numeric: true });
+  });
 
   // 2. 탭 요소 가져오기
   const tabs = document.querySelectorAll("li.tab-item");
@@ -53,11 +58,16 @@ async function renderCards(ids) {
 
   for (const id of ids) {
     const data = window.cardData[id];
+    if (!data) continue; // 데이터가 없는 경우 건너뛰기
     
     const div = document.createElement('div');
     div.setAttribute('data-id', id);
     div.setAttribute('role', 'gridcell');
-    div.setAttribute('aria-label', data.type === 'others' ? `기타 콘텐츠 ${id}` : `앤솔로지 ${id}`);
+    
+    // aria-label 로직 수정
+    const typeLabel = data.type === 'series' ? '시리즈' : 
+                     data.type === 'others' ? '기타 콘텐츠' : '앤솔로지';
+    div.setAttribute('aria-label', `${typeLabel} ${id}`);
     
     div.innerHTML = await fetchTemplate();
     

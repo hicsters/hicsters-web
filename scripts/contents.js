@@ -2,33 +2,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
 
-  // — Dropdown & Font Toggle —
-  const dropdown = document.getElementById('customDropdown');
-  if (dropdown) {
-    const toggle  = dropdown.querySelector('.dropdown-toggle');
-    const options = dropdown.querySelectorAll('.dropdown-options div');
-
-    toggle.addEventListener('click', () => {
-      dropdown.classList.toggle('open');
-    });
-
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        const selectedText = option.textContent;
-        const targetUrl    = option.getAttribute('data-url');
-        toggle.textContent = selectedText;
-        dropdown.classList.remove('open');
-        if (targetUrl) window.location.href = targetUrl;
-      });
-    });
-
-    document.addEventListener('click', e => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-      }
-    });
-  }
-
   // — Font Toggle —
   const fontWrapper = document.querySelector('div.font.value');
   if (fontWrapper) {
@@ -78,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateScrollUI();
   }
 
-  // — Content Page Data Injection, Style & Title —
-  const pathMatch = window.location.pathname.match(/\/contents\/contents-(\d{3})\.html$/);
+  // — Content Page Data Injection & Style —
+  const pathMatch = window.location.pathname.match(/\/contents\/contents-(\d{6}|\d{3})\.html$/);
   if (pathMatch && window.cardData) {
     const id   = pathMatch[1];
     const data = window.cardData[id];
@@ -119,6 +92,71 @@ document.addEventListener("DOMContentLoaded", function () {
         const isSerif = ff.includes('serif');
         contentFontLabel.textContent = isSerif ? 'Serif' : 'San-Serif';
         contentFontWrapper.classList.toggle('on', isSerif);
+      }
+
+      // 시리즈 드롭다운 초기화 (Refactored)
+      console.log('🚀 Initializing dropdown for content:', id);
+      const dropdown = document.getElementById('customDropdown');
+      console.log('📍 Found dropdown element:', dropdown);
+      
+      if (dropdown) {
+        // Remove any existing event listeners
+        const newDropdown = dropdown.cloneNode(true);
+        dropdown.parentNode.replaceChild(newDropdown, dropdown);
+        
+        const toggle = newDropdown.querySelector('.dropdown-toggle');
+        const optionsContainer = newDropdown.querySelector('.dropdown-options');
+        console.log('🔍 Toggle element:', toggle);
+        console.log('🔍 Options container:', optionsContainer);
+        
+        // Set current number
+        const seriesPrefix = id.substring(0, 3);
+        const currentNumber = id.substring(4, 6);
+        if (toggle) {
+          toggle.textContent = currentNumber;
+          console.log('✏️ Set toggle text to:', currentNumber);
+          
+          // Add toggle click event
+          toggle.addEventListener('click', (e) => {
+            console.log('🖱️ Toggle clicked');
+            e.stopPropagation();
+            const isOpen = newDropdown.classList.toggle('open');
+            console.log('🔓 Dropdown is now:', isOpen ? 'open' : 'closed');
+          });
+        }
+        
+        // Generate options
+        if (optionsContainer) {
+          optionsContainer.innerHTML = '';
+          const seriesPages = Object.keys(window.cardData)
+            .filter(pageId => pageId.startsWith(seriesPrefix))
+            .sort();
+          
+          seriesPages.forEach(pageId => {
+            const pageNumber = pageId.substring(4, 6);
+            const option = document.createElement('div');
+            option.textContent = pageNumber;
+            option.setAttribute('data-url', `/contents/contents-${pageId}.html`);
+            optionsContainer.appendChild(option);
+            
+            // Add click event to option
+            option.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const targetUrl = option.getAttribute('data-url');
+              if (targetUrl && pageId !== id) {
+                window.location.href = targetUrl;
+              }
+              newDropdown.classList.remove('open');
+            });
+          });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!newDropdown.contains(e.target)) {
+            newDropdown.classList.remove('open');
+          }
+        });
       }
     }
   }

@@ -100,7 +100,7 @@ li.info-divider{
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('/images/icons/icon-dropdown-bk.svg'); 
+    background-image: url('/images/icons/icon-dropdown.svg'); 
     background-repeat: no-repeat;
     background-position: right 40%;
     background-size: 16px;
@@ -167,7 +167,7 @@ div.body{
 }
 ul.writing{
     width: 100%;
-    padding: 0px 16px 64px;
+    padding: 40px 16px 64px;
     display: flex;
     flex-direction: column;
     gap: 64px;

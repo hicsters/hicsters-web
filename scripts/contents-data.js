@@ -11,7 +11,7 @@ window.cardData = {
         bgColor:     "#ffffff",
         textColor:   "#1a1a1a",
         // fontFamily:  "'Maruburi', serif",
-        type:        "series"
+        type:        "others"
     },
   
     "002": {
@@ -474,5 +474,70 @@ window.cardData = {
         textColor:   "#1a1a1a",
         // fontFamily:  "'Maruburi', serif",
         type:        "anthology"
-    }
+    },
+    "035001": {
+        title:       "프롤로그",
+        quote:       "수많은 시험에 답하는 과정이 인생의 전부가 아닐까.",
+        writer:      "도나",
+        theme:       "낭만을 찾아서",
+        seriesNum:   "01/05",      
+        format:      "Essay",
+        date:        "2024-12-01",
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a",
+        // fontFamily:  "'Maruburi', serif",
+        type:        "series"
+    },
+    "035002": {
+    title:       "예술",
+    quote:       "수많은 시험에 답하는 과정이 인생의 전부가 아닐까.",
+    writer:      "도나",
+    theme:       "낭만을 찾아서",
+    seriesNum:   "02/05",      
+    format:      "Essay",
+    date:        "2024-12-01",
+    bgColor:     "#ffffff",
+    textColor:   "#1a1a1a",
+    // fontFamily:  "'Maruburi', serif",
+    type:        "series"
+    },
+    "035003": {
+    title:       "어떤 언니들",
+    quote:       "수많은 시험에 답하는 과정이 인생의 전부가 아닐까.",
+    writer:      "도나",
+    theme:       "낭만을 찾아서",
+    seriesNum:   "03/05",      
+    format:      "Essay",
+    date:        "2024-12-01",
+    bgColor:     "#ffffff",
+    textColor:   "#1a1a1a",
+    // fontFamily:  "'Maruburi', serif",
+    type:        "series"
+    },
+    "035004": {
+    title:       "계엄 12.4",
+    quote:       "수많은 시험에 답하는 과정이 인생의 전부가 아닐까.",
+    writer:      "도나",
+    theme:       "낭만을 찾아서",
+    seriesNum:   "04/05",      
+    format:      "Essay",
+    date:        "2024-12-04",
+    bgColor:     "#ffffff",
+    textColor:   "#1a1a1a",
+    // fontFamily:  "'Maruburi', serif",
+    type:        "series"
+    },
+    "035005": {
+    title:       "강아지",
+    quote:       "수많은 시험에 답하는 과정이 인생의 전부가 아닐까.",
+    writer:      "도나",
+    theme:       "낭만을 찾아서",
+    seriesNum:   "05/05",      
+    format:      "Essay",
+    date:        "2025-02-02",
+    bgColor:     "#ffffff",
+    textColor:   "#1a1a1a",
+    // fontFamily:  "'Maruburi', serif",
+    type:        "series"
+    },
 };
