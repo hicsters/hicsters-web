@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else if (isContact) {
             document.body.classList.add('contact');
         } else if (isContents) {
-            const contentId = location.pathname.match(/contents-(\d+)\.html/)?.[1];
+            const contentId = location.pathname.match(/\/contents\/(\d+)$/)?.[1];
             if (contentId) {
                 document.body.classList.add(`contents-${contentId}`);
             }
@@ -103,26 +103,59 @@ document.addEventListener("DOMContentLoaded", async function () {
             menuBtn.classList.toggle("custom", type === "custom");
         };
   
+        // requestAnimationFrame을 사용한 스크롤 최적화
+        let ticking = false;
+        let lastScrollY = 0;
+        const scrollThreshold = window.innerHeight * 1.5;
+
         const applyAboutScrollState = () => {
-            const scrolled = window.scrollY >= window.innerHeight * 1.5;  
-            header.classList.toggle("bg", scrolled);
-            header.classList.toggle("show-logo", scrolled);
+            const currentScrollY = window.scrollY;
+            
+            // 스크롤 위치가 이전과 크게 다를 때만 처리
+            if (Math.abs(currentScrollY - lastScrollY) > 50) {
+                const scrolled = currentScrollY >= scrollThreshold;
+                header.classList.toggle("bg", scrolled);
+                header.classList.toggle("show-logo", scrolled);
+                lastScrollY = currentScrollY;
+            }
         };
+
+        // 스크롤 이벤트 디바운싱
+        if (isAbout) {
+            header.classList.remove("show-logo");
+            setMenuIcon("white");
+            applyAboutScrollState();
+            
+            let scrollTimeout;
+            window.addEventListener("scroll", () => {
+                if (isMenuOpen) return;
+                
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        if (scrollTimeout) clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => {
+                            applyAboutScrollState();
+                            ticking = false;
+                        }, 10);
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        }
   
         const applyContentsScrollState = () => {
             const infoSection = document.querySelector("div.info");
             const infoHeight = infoSection ? infoSection.offsetHeight : 0;
             const threshold = window.innerHeight - (infoHeight + 64);
             const scrolled = window.scrollY >= threshold;
-  
-            // contents 페이지에서 cardData의 색상 가져오기
+
             if (window.cardData) {
-                const contentId = location.pathname.match(/contents-(\d+)\.html/)?.[1];
+                // URL 패턴 수정
+                const contentId = location.pathname.match(/\/contents\/(\d+)$/)?.[1];
                 if (contentId && window.cardData[contentId]) {
                     const { bgColor, textColor } = window.cardData[contentId];
                     
                     if (scrolled) {
-                        // 스크롤 시 CSS 변수 업데이트
                         document.documentElement.style.setProperty('--bg-color', bgColor);
                         document.documentElement.style.setProperty('--text-color', textColor);
                         header.classList.add("bg");
@@ -134,72 +167,59 @@ document.addEventListener("DOMContentLoaded", async function () {
         };
   
         // 메뉴 버튼 핸들러
-        menuBtn.addEventListener("click", async () => {
+        menuBtn.addEventListener("click", () => {  // async 제거
             isMenuOpen = !isMenuOpen;
-
+            
             if (isMenuOpen) {
-                scrollY = window.scrollY;
-                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-                body.style.overflow = "hidden";
-                body.style.paddingRight = `${scrollbarWidth}px`;
-                body.style.position = "fixed";
-                body.style.width = "100%";
-                body.style.top = `-${scrollY}px`;
-
-                // ARIA 상태 업데이트
+                // 모든 UI 변경을 동시에 처리
+                nav.classList.add("open");
                 menuBtn.setAttribute('aria-expanded', 'true');
                 nav.setAttribute('aria-hidden', 'false');
-
-                // 현재 상태 저장
-                previousState = captureState();
                 
-                // 먼저 클래스 변경
+                const svgContainer = menuBtn.querySelector('[data-svg]');
+                if (svgContainer) {
+                    svgContainer.dataset.svg = "icons/icon-close";
+                    svgContainer.setAttribute('aria-label', '메뉴 닫기');
+                }
+
+                // 스크롤 처리와 상태 변경
+                scrollY = window.scrollY;
+                body.style.position = "fixed";
+                body.style.top = `-${scrollY}px`;
+                body.style.width = "100%";
+                body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
+
+                previousState = captureState();
                 header.classList.remove("bg");
                 header.classList.add("show-logo");
                 setLogo("white");
                 setMenuIcon("white");
+
+                // SVG 로드는 백그라운드에서 처리
+                loadSvgElements(menuBtn);
                 
-                // 메뉴 버튼 내부의 SVG 컨테이너 찾기
-                const svgContainer = menuBtn.querySelector('[data-svg]');
-                if (svgContainer) {
-                    // data-svg 속성 변경
-                    svgContainer.dataset.svg = "icons/icon-close";
-                    // SVG 다시 로드
-                    await loadSvgElements(menuBtn);
-                    // 아이콘 변경 시 ARIA 레이블 업데이트
-                    svgContainer.setAttribute('aria-label', '메뉴 닫기');
-                }
-                
-                // 마지막으로 메뉴 표시
-                nav.classList.add("open");
             } else {
-                // ARIA 상태 업데이트
+                // 모든 UI 변경을 동시에 처리
+                nav.classList.remove("open");
                 menuBtn.setAttribute('aria-expanded', 'false');
                 nav.setAttribute('aria-hidden', 'true');
-
-                // 먼저 메뉴 숨기기
-                nav.classList.remove("open");
                 
-                // 메뉴 버튼 내부의 SVG 컨테이너 찾기
                 const svgContainer = menuBtn.querySelector('[data-svg]');
                 if (svgContainer) {
-                    // data-svg 속성 변경
                     svgContainer.dataset.svg = "icons/icon-menu";
-                    // SVG 다시 로드
-                    await loadSvgElements(menuBtn);
-                    // 아이콘 변경 시 ARIA 레이블 업데이트
                     svgContainer.setAttribute('aria-label', '메뉴 열기');
                 }
-                
-                // 이전 상태로 복원
+
                 restoreState(previousState);
                 
-                body.style.overflow = "";
-                body.style.paddingRight = "";
                 body.style.position = "";
-                body.style.width = "";
                 body.style.top = "";
+                body.style.width = "";
+                body.style.paddingRight = "";
                 window.scrollTo(0, scrollY);
+
+                // SVG 로드는 백그라운드에서 처리
+                loadSvgElements(menuBtn);
             }
         });
   
@@ -261,7 +281,8 @@ document.addEventListener("DOMContentLoaded", async function () {
               const keys = Object.keys(window.cardData);
               const randomIdx = Math.floor(Math.random() * keys.length);
               const randomId = keys[randomIdx];
-              window.location.href = `/contents/contents-${randomId}.html`;
+              // URL 패턴 수정
+              window.location.href = `/contents/${randomId}`;
             });
           });
         }
@@ -269,4 +290,3 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Header loading failed:", err);
     }
 });
-  

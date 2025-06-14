@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters: Contents Title</title>
-    <script src="/components/head/head.js" defer></script>
+    <!-- 핵심 데이터와 스크립트를 먼저 로드 -->
+    <script src="/scripts/contents-data.js"></script>
+    <script src="/scripts/common.js"></script>
     <link rel="stylesheet" href="/css/contents.css">
 </head>
 <body>
@@ -14,7 +16,8 @@
     </div>
     <main>
         <div class="top">
-            <div class="thumb"></div>
+            <div class="thumb">
+            </div>
             <div class="info">
                 <div class="contents-title">
                     <p></p>
@@ -28,6 +31,13 @@
                     <li class="info-value">
                         <p class="theme lable">About</p>
                         <p class="theme value"></p>
+                    </li>
+                    <li class="info-value series-num">
+                        <p class="series-num lable">Series No.</p>
+                        <div class="series-num value dropdown" id="customDropdown">
+                            <div class="dropdown-toggle"></div>
+                            <div class="dropdown-options"></div>
+                        </div>
                     </li>
                     <li class="info-divider"></li>
                     <li class="info-value">
@@ -52,20 +62,15 @@
                 </ul>
             </div>
         </div>
-        <div class="body">
-            <ul class="writing">
-                <li class="text">
-                </li>
-            </ul>
-            <div id="hicster-contact" data-id="hicster-00"></div>
+        <div class="body">        
         </div>
     </main>
     <div id="footer"></div>
+    <!-- 스크립트 순서 중요 -->
+    <script src="/scripts/contents.js"></script>
+    <script src="/components/head/head.js"></script>
     <script src="/components/header/header.js"></script>
-    <script src="/components/footer/footer.js"></script>  
-    <script src="/components/hicster-contact/hicster-contact.js"></script>  
-    <script src="/scripts/contents.js"></script> 
-    <script src="/scripts/contents-data.js"></script> 
-    <script src="/scripts/common.js"></script>
+    <script src="/components/footer/footer.js"></script>
+    <script src="/components/hicster-contact/hicster-contact.js"></script>
 </body>
 </html>

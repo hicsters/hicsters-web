@@ -22,13 +22,15 @@
       frameEl.src = `/images/logo/ScrollAnim/${fileName}.png`;
     }
 
-    // 2) 배경색 보간 (66.7vh→100vh 구간)
-    let t = (vhScrolled - startScroll) / (endScroll - startScroll);
-    t = Math.min(1, Math.max(0, t));
-    const r = Math.round(startRGB.r + t * (endRGB.r - startRGB.r));
-    const g = Math.round(startRGB.g + t * (endRGB.g - startRGB.g));
-    const b = Math.round(startRGB.b + t * (endRGB.b - startRGB.b));
-    bgEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    // 2) 배경색 보간 (66.7vh→100vh 구간) - 메뉴가 열려있지 않을 때만
+    if (!document.querySelector('nav.open')) {  // nav에 open 클래스가 없을 때만 실행
+      let t = (vhScrolled - startScroll) / (endScroll - startScroll);
+      t = Math.min(1, Math.max(0, t));
+      const r = Math.round(startRGB.r + t * (endRGB.r - startRGB.r));
+      const g = Math.round(startRGB.g + t * (endRGB.g - startRGB.g));
+      const b = Math.round(startRGB.b + t * (endRGB.b - startRGB.b));
+      bgEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
   });
 
   const riveInstance = new rive.Rive({

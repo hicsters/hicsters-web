@@ -2,21 +2,19 @@
 // 탭 클릭 시 카드 리스트 필터링 및 스크롤 처리
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // 1. 초기 데이터 설정 - 페이지 로드 시 한 번만 실행
+  // 1. 초기 데이터 설정
   const allContentIds = Object.keys(window.cardData);
-  const shuffledIds = shuffleArray([...allContentIds]);  // 초기 랜덤 순서
+  const shuffledIds = shuffleArray([...allContentIds]);
   
-  // 정렬 로직 수정
   const sortedIds = [...allContentIds].sort((a, b) => {
-    // 문자열 기반 자연스러운 정렬 (숫자를 올바르게 처리)
     return b.localeCompare(a, undefined, { numeric: true });
   });
 
   // 2. 탭 요소 가져오기
   const tabs = document.querySelectorAll("li.tab-item");
 
-  // 3. 초기 카드 생성 (랜덤 순서)
-  await renderCards(shuffledIds);
+  // 3. 초기 카드 생성 (랜덤 순서) - card.js의 함수 호출
+  window.dispatchEvent(new CustomEvent('renderCards', { detail: { ids: shuffledIds } }));
 
   // 4. 탭 클릭 이벤트 바인딩
   tabs.forEach(tab => {
@@ -34,86 +32,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       else if (tab.classList.contains("series"))    filterKey = "series";
       else if (tab.classList.contains("others"))    filterKey = "others";
 
-      // 4-3. 필터링 (랜덤 순서 없이)
+      // 4-3. 필터링
       let filteredIds;
       if (filterKey === "all") {
-        filteredIds = shuffledIds;  // 초기 랜덤 순서 유지
+        filteredIds = shuffledIds;
       } else {
         filteredIds = sortedIds.filter(id => window.cardData[id].type === filterKey);
       }
 
-      // 4-4. 카드 재렌더링
-      await renderCards(filteredIds);
+      // 4-4. 카드 재렌더링 - card.js의 함수 호출
+      window.dispatchEvent(new CustomEvent('renderCards', { detail: { ids: filteredIds } }));
 
       // 4-5. 스크롤 상단으로
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 });
-
-// 카드 렌더링 함수
-async function renderCards(ids) {
-  const container = document.querySelector(".contects-list");
-  container.innerHTML = '';
-
-  for (const id of ids) {
-    const data = window.cardData[id];
-    if (!data) continue; // 데이터가 없는 경우 건너뛰기
-    
-    const div = document.createElement('div');
-    div.setAttribute('data-id', id);
-    div.setAttribute('role', 'gridcell');
-    
-    // aria-label 로직 수정
-    const typeLabel = data.type === 'series' ? '시리즈' : 
-                     data.type === 'others' ? '기타 콘텐츠' : '앤솔로지';
-    div.setAttribute('aria-label', `${typeLabel} ${id}`);
-    
-    div.innerHTML = await fetchTemplate();
-    
-    if (data) {
-      // series-num 요소 처리 추가
-      const seriesLi = div.querySelector('li.series-num');
-      if (seriesLi && data.type !== 'series') {
-        seriesLi.remove();  // series 타입이 아닌 경우 요소 제거
-      }
-
-      const elements = {
-        '.quote': data.quote,
-        '.title.value': data.title,
-        '.writer.value': data.writer,
-        '.theme.value': data.theme,
-        '.series-num.value': data.seriesNum
-      };
-
-      Object.entries(elements).forEach(([selector, value]) => {
-        const el = div.querySelector(selector);
-        if (el && value) el.textContent = value;
-      });
-
-      const thumb = div.querySelector('.thumb');
-      if (thumb) {
-        thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
-        thumb.style.backgroundColor = data.bgColor || '#ffffff';
-        thumb.style.color = data.textColor || '#1a1a1a';
-        thumb.setAttribute('role', 'img');
-        thumb.setAttribute('aria-label', `콘텐츠 ${id} 썸네일`);
-      }
-    }
-
-    div.addEventListener('click', () => {
-      window.location.href = `/contents/contents-${id}.html`;
-    });
-
-    container.appendChild(div);
-  }
-}
-
-// 템플릿 가져오기 함수
-async function fetchTemplate() {
-  const res = await fetch('/components/card/card.html');
-  return await res.text();
-}
 
 // 유틸리티 함수: 배열 랜덤 셔플
 function shuffleArray(array) {
