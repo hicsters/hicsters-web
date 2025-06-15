@@ -1,4 +1,17 @@
-// main.js (or contents.js – 동일 스크립트 한 파일로 사용 가능)
+// main.js (or contents.js – 동일 스크립트 한 파일로 사용)
+// 작가 정보 매핑 객체 추가
+const writerToHicsterId = {
+    '고나': 'hicster-01',
+    '김금진': 'hicster-02',
+    '김씨': 'hicster-03',
+    '김윤희': 'hicster-04',
+    '노나': 'hicster-05',
+    '도나': 'hicster-06',
+    '라근': 'hicster-07',
+    '세세': 'hicster-08',
+    '채다정': 'hicster-09'
+};
+
 document.addEventListener("DOMContentLoaded", async function () {
     const root = document.documentElement;
     console.log('🚀 Starting page load');
@@ -95,7 +108,31 @@ document.addEventListener("DOMContentLoaded", async function () {
         // 4. 콘텐츠 주입
         const bodyContainer = document.querySelector('.body');
         if (bodyContainer) {
+            // hicster-contact div 임시 저장
+            const contactDiv = bodyContainer.querySelector('#hicster-contact');
+            
+            // 콘텐츠 주입
             bodyContainer.innerHTML = await contentRes.text();
+            
+            // hicster-contact div 다시 추가
+            if (contactDiv) {
+                bodyContainer.appendChild(contactDiv);
+            }
+            
+            // 작가 정보 자동 설정
+            const contentData = window.cardData[id];
+            if (contentData) {
+                const writerContact = document.getElementById('hicster-contact');
+                if (writerContact) {
+                    const hicsterId = writerToHicsterId[contentData.writer];
+                    if (hicsterId) {
+                        writerContact.setAttribute('data-id', hicsterId);
+                        console.log('✅ Writer contact set:', contentData.writer, '->', hicsterId);
+                    } else {
+                        console.warn('⚠️ No hicster ID found for writer:', contentData.writer);
+                    }
+                }
+            }
         }
 
         // 5. 시리즈 드롭다운 초기화
