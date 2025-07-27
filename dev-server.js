@@ -42,9 +42,12 @@ http.createServer((req, res) => {
     }
 
     // 정적 파일 처리
-    const filePath = path.join(__dirname, url);
+    let filePath = path.join(__dirname, url);
+    // 루트(/) 요청 시 index.html 반환
+    if (url === '/' || url === '') {
+        filePath = path.join(__dirname, 'index.html');
+    }
     console.log('🔍 Looking for file:', filePath);
-    
     try {
         const data = fs.readFileSync(filePath);
         const ext = path.extname(filePath);
