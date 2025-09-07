@@ -1,7 +1,7 @@
 /contents/bodies/*   /contents/bodies/:splat   200
 /contents/contents-template.html   /contents/contents-template.html   200
 /contents/textConverter.html   /contents/textConverter.html   200
+/contents/*   /contents/contents-template.html   200
 http://hicsters.com/*    https://www.hicsters.com/:splat   301
 http://www.hicsters.com/* https://www.hicsters.com/:splat   301
 https://hicsters.com/*    https://www.hicsters.com/:splat   301
-/contents/*   /contents/contents-template.html   200
