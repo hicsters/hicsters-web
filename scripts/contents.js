@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const root = document.documentElement;
     console.log('🚀 Starting page load');
 
+    function setInfoHeightVar(){
+        const infoEl = document.querySelector('div.info');
+        if (infoEl){
+            const h = infoEl.offsetHeight;
+            root.style.setProperty('--info-height', h + 'px');
+        }
+    }
+
     const pathMatch = window.location.pathname.match(/\/contents\/(\d+)$/);
     if (!pathMatch || !window.cardData) {
         console.error('❌ Invalid URL or missing cardData');
@@ -113,7 +121,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             
             // 콘텐츠 주입
             bodyContainer.innerHTML = await contentRes.text();
-            
+
+            // (제거됨) Notion 텍스트 자동 변환 로직
+
+            // (유지) 동적으로 삽입된 콘텐츠에 대해 SVG 로더 실행
+            if (typeof loadSvgElements === 'function') {
+                loadSvgElements(bodyContainer);
+            }
+
             // hicster-contact div 다시 추가
             if (contactDiv) {
                 bodyContainer.appendChild(contactDiv);
@@ -134,6 +149,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             }
         }
+
+        // info 높이 변수 설정 (주입 후 계산)
+        setInfoHeightVar();
+        window.addEventListener('resize', setInfoHeightVar);
 
         // 5. 시리즈 드롭다운 초기화
         console.log('🚀 Initializing dropdown for content:', id);

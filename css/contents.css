@@ -38,7 +38,7 @@ main > .top{
 }
 .top > .thumb {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 356px);
     background-size: cover;
     background-position: center;
     position: fixed;
@@ -193,13 +193,13 @@ ul.writing{
     padding: 40px 16px 64px;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 32px;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.8;
 }
 ul.writing p{
-    padding: 0px 4px 32px;
+    padding: 0px 4px;
 }
 ul.writing .in-text-img svg,
 ul.writing .in-text-img [data-svg] {
@@ -210,11 +210,23 @@ ul.writing .in-text-img [data-svg] {
 li.asterisk {
     display: flex;
     gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 2em 0;
 }
 li.asterisk [data-svg],
 li.asterisk svg {
     width: 16px;
     height: 16px;
+    display: block;
+}
+li.heading h3{
+    font-weight: 600;
+    font-size: 20px;
+    margin: 1em 0 0.5em;
+}
+strong{
+    font-weight: 600;
 }
 
 /* converter */
@@ -250,27 +262,30 @@ li.callout {
     border: none;
     padding: 0;
     margin: 16px 0;
+    border-radius: 8px;
 }
 
 li.callout .callout {
     display: flex;
     align-items: flex-start;
     padding: 20px;
+    border-radius: 8px;
 }
 
 li.callout .callout-emoji {
-    font-size: 1.2em;
+    font-size: 24px;
     margin-right: 15px;
     margin-top: 0;
     flex-shrink: 0;
     width: 24px;
+    height: 24px;
     text-align: center;
-    line-height: 1.6;
+    line-height: 24px;
 }
 
 li.callout .callout-content {
     flex: 1;
-    line-height: 1.6;
+    line-height: 24px;
 }
 
 li.caption {
@@ -295,4 +310,17 @@ li.quote blockquote {
     background: none;
     line-height: 1.6;
     white-space: pre-line;
+}
+.image > .caption{
+    margin-top: 16px;
+    text-align: center;
+    opacity: 60%;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.image-container video{
+    width: 100%;
+    height: auto;
+    display: block;
 }
