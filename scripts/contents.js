@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         // 3. 썸네일 설정
         const thumbEl = document.querySelector('.thumb');
         if (thumbEl) {
-            thumbEl.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
+            thumbEl.style.backgroundImage = `url("/images/thumb/thumb-${id}.avif")`;
         }
 
         // 4. 콘텐츠 주입

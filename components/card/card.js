@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const thumb = div.querySelector('.thumb');
     if (thumb) {
-      thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.png")`;
+      thumb.style.backgroundImage = `url("/images/thumb/thumb-${id}.avif")`;
       thumb.setAttribute('role', 'img');
       thumb.setAttribute('aria-label', `콘텐츠 ${id} 썸네일`);
     }
