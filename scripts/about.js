@@ -19,7 +19,7 @@
     if (idx !== lastIdx) {
       lastIdx = idx;
       const fileName = String(idx).padStart(3, '0');
-      frameEl.src = `/images/logo/ScrollAnim/${fileName}.png`;
+      frameEl.src = `/images/logo/ScrollAnim/${fileName}.avif`;
     }
 
     // 2) 배경색 보간 (66.7vh→100vh 구간) - 메뉴가 열려있지 않을 때만
