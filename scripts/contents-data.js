@@ -22,8 +22,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Essay",
         date:        "2024-02-16",
-        bgColor:     "#a09f93",
-        textColor:   "red",
+        bgColor:     "#ffffff",
+        textColor:   "#1a1a1a",
         fontFamily:  "'Maruburi', serif",
         type:        "others"
     },
@@ -330,8 +330,8 @@ window.cardData = {
         seriesNum:   "",      
         format:      "Poetry",
         date:        "2024-04-21",
-        bgColor:     "#ffffff",
-        textColor:   "#1a1a1a",
+        bgColor:     "#6182a5",
+        textColor:   "#171719",
         // fontFamily:  "'Maruburi', serif",
         type:        "anthology"
     },

@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-05": {
                     name:  "노나",
-                    intro: "노나의 간단한 소개",
+                    intro: "카페인, 고양이, 부대찌개",
                     email: "tladhgks@gmail.com",
                     image: "/images/profiles/img-profile-05.png"
                 },
