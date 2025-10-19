@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-03": {
                     name:  "김씨",
-                    intro: "김씨의 간단한 소개",
+                    intro: "시트콤같은 인생을 살아가는 김씨",
                     email: "sh2553@naver.com",
-                    image: "/images/profiles/img-profile-03.png"
+                    image: "/images/profiles/img-profile-03.jpeg"
                 },
                 "hicster-04": {
                     name:  "김윤희",
