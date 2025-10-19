@@ -28,10 +28,59 @@ http.createServer((req, res) => {
     // /contents/{number} 패턴 체크
     const contentMatch = url.match(/^\/contents\/(\d+)$/);
     if (contentMatch) {
-        console.log('📄 Serving content template for ID:', contentMatch[1]);
-        const templatePath = path.join(__dirname, 'contents', 'contents-template.html');
+        const contentId = contentMatch[1];
+        console.log('📄 Serving content template for ID:', contentId);
+        
         try {
-            const template = fs.readFileSync(templatePath, 'utf8');
+            // contents-data.js 파일에서 데이터 로드
+            const dataPath = path.join(__dirname, 'scripts', 'contents-data.js');
+            const dataContent = fs.readFileSync(dataPath, 'utf8');
+            
+            // cardData 객체 추출 (간단한 방법)
+            const cardDataMatch = dataContent.match(/window\.cardData\s*=\s*({[\s\S]*?});/);
+            if (!cardDataMatch) {
+                throw new Error('cardData not found');
+            }
+            
+            const cardData = eval(`(${cardDataMatch[1]})`);
+            const contentData = cardData[contentId];
+            
+            if (!contentData) {
+                res.writeHead(404);
+                res.end('Content not found');
+                return;
+            }
+            
+            // 템플릿 로드
+            const templatePath = path.join(__dirname, 'contents', 'contents-template.html');
+            let template = fs.readFileSync(templatePath, 'utf8');
+            
+            // 메타태그 동적 생성
+            const baseUrl = 'https://hicsters.com';
+            const currentUrl = `${baseUrl}/contents/${contentId}`;
+            const description = `${contentData.writer}: ${contentData.title}`;
+            const imageUrl = `${baseUrl}/images/thumb/thumb-${contentId}.avif`;
+            
+            // 메타태그 HTML 생성
+            const metaTags = `
+    <meta name="description" content="${description}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Hiccsters">
+    <meta property="og:title" content="Hicsters: ${contentData.title}">
+    <meta property="og:description" content="${description}">
+    <meta property="og:url" content="${currentUrl}">
+    <meta property="og:image" content="${imageUrl}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="${contentData.title} 썸네일">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hicsters: ${contentData.title}">
+    <meta name="twitter:description" content="${description}">
+    <meta name="twitter:image" content="${imageUrl}">`;
+            
+            // 템플릿에 메타태그 삽입
+            template = template.replace('</head>', `${metaTags}\n</head>`);
+            
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
             res.end(template);
             return;
