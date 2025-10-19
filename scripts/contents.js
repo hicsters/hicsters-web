@@ -12,50 +12,6 @@ const writerToHicsterId = {
     '채다정': 'hicster-09'
 };
 
-// 메타태그 동적 업데이트 함수
-function updateMetaTags(data, id) {
-    const baseUrl = 'https://hicsters.com';
-    const currentUrl = `${baseUrl}/contents/${id}`;
-    const description = `${data.writer}: ${data.title}`;
-    const imageUrl = `${baseUrl}/images/thumb/thumb-${id}.avif`;
-    
-    // 기존 메타태그 업데이트 또는 새로 생성
-    const metaTags = {
-        'description': { name: 'description', content: description },
-        'og:title': { property: 'og:title', content: `Hicsters: ${data.title}` },
-        'og:description': { property: 'og:description', content: description },
-        'og:url': { property: 'og:url', content: currentUrl },
-        'og:image': { property: 'og:image', content: imageUrl },
-        'og:image:alt': { property: 'og:image:alt', content: `${data.title} 썸네일` },
-        'twitter:title': { name: 'twitter:title', content: `Hicsters: ${data.title}` },
-        'twitter:description': { name: 'twitter:description', content: description },
-        'twitter:image': { name: 'twitter:image', content: imageUrl }
-    };
-    
-    Object.entries(metaTags).forEach(([key, tag]) => {
-        let element;
-        
-        if (tag.name) {
-            element = document.querySelector(`meta[name="${tag.name}"]`);
-        } else if (tag.property) {
-            element = document.querySelector(`meta[property="${tag.property}"]`);
-        }
-        
-        if (element) {
-            element.setAttribute('content', tag.content);
-        } else {
-            // 메타태그가 없으면 새로 생성
-            const newElement = document.createElement('meta');
-            if (tag.name) {
-                newElement.setAttribute('name', tag.name);
-            } else if (tag.property) {
-                newElement.setAttribute('property', tag.property);
-            }
-            newElement.setAttribute('content', tag.content);
-            document.head.appendChild(newElement);
-        }
-    });
-}
 
 document.addEventListener("DOMContentLoaded", async function () {
     const root = document.documentElement;
@@ -91,9 +47,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (data.fontFamily) root.style.setProperty('--font-family', data.fontFamily);
 
             document.title = `Hicsters: ${data.title}`;
-
-            // 메타태그 동적 업데이트
-            updateMetaTags(data, id);
 
             // 시리즈 정보 처리
             const seriesNumEl = document.querySelector('li.series-num');
