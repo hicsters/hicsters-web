@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-02": {
                     name:  "김금진",
-                    intro: "김금진의 간단한 소개",
+                    intro: "뭐든 잘할거야. 근데 뭘해야하지?",
                     email: "jinnn1122@naver.com",
-                    image: "/images/profiles/img-profile-02.png"
+                    image: "/images/profiles/img-profile-02.jpeg"
                 },
                 "hicster-03": {
                     name:  "김씨",
