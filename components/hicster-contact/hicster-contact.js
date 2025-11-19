@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-09": {
                     name:  "채다정",
-                    intro: "채다정의 간단한 소개",
+                    intro: "침대 위 부스러기 모음",
                     email: "chae_da@naver.com",
-                    image: "/images/profiles/img-profile-09.png"
+                    image: "/images/profiles/img-profile-09.JPG"
                 }
             };
 
