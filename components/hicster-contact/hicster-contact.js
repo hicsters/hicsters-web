@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     name:  "김금진",
                     intro: "뭐든 잘할거야. 근데 뭘해야하지?",
                     email: "jinnn1122@naver.com",
-                    image: "/images/profiles/img-profile-02.jpeg"
+                    image: "/images/profiles/img-profile-02.avif"
                 },
                 "hicster-03": {
                     name:  "김씨",
                     intro: "시트콤같은 인생을 살아가는 김씨",
                     email: "sh2553@naver.com",
-                    image: "/images/profiles/img-profile-03.jpeg"
+                    image: "/images/profiles/img-profile-03.avif"
                 },
                 "hicster-04": {
                     name:  "김윤희",
@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     name:  "노나",
                     intro: "카페인, 고양이, 부대찌개",
                     email: "tladhgks@gmail.com",
-                    image: "/images/profiles/img-profile-05.png"
+                    image: "/images/profiles/img-profile-05.avif"
                 },
                 "hicster-06": {
                     name:  "도나",
-                    intro: "도나의 간단한 소개",
+                    intro: "호기심 과잉 맥시멀리스트",
                     email: "sehyeon94@gmail.com",
-                    image: "/images/profiles/img-profile-06.png"
+                    image: "/images/profiles/img-profile-06.avif"
                 },
                 "hicster-07": {
                     name:  "라근",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     name:  "채다정",
                     intro: "침대 위 부스러기 모음",
                     email: "chae_da@naver.com",
-                    image: "/images/profiles/img-profile-09.JPG"
+                    image: "/images/profiles/img-profile-09.avif"
                 }
             };
 
