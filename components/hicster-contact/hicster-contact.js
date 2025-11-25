@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     name:  "김윤희",
                     intro: "김윤희의 간단한 소개",
                     email: "3948872@gmail.com",
-                    image: "/images/profiles/img-profile-04.png"
+                    image: "/images/profiles/img-profile-04.avif"
                 },
                 "hicster-05": {
                     name:  "노나",
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-07": {
                     name:  "라근",
-                    intro: "라근의 간단한 소개",
+                    intro: "함부로 아름다운 청춘, 너의 하늘을 보아",
                     email: "ragnn96@gmail.com",
-                    image: "/images/profiles/img-profile-07.png"
+                    image: "/images/profiles/img-profile-07.avif"
                 },
                 "hicster-08": {
                     name:  "세세",
