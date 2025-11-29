@@ -167,6 +167,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                     if (hicsterId) {
                         writerContact.setAttribute('data-id', hicsterId);
                         console.log('✅ Writer contact set:', contentData.writer, '->', hicsterId);
+                        
+                        // hicster-contact 초기화 (전역 함수 호출 또는 커스텀 이벤트 발생)
+                        if (typeof window.initHicsterContact === 'function') {
+                            // 약간의 지연을 주어 DOM이 완전히 준비되도록
+                            setTimeout(async () => {
+                                await window.initHicsterContact();
+                            }, 50);
+                        } else {
+                            // 함수가 아직 로드되지 않았으면 이벤트 발생
+                            document.dispatchEvent(new CustomEvent('hicsterContactInit'));
+                        }
                     } else {
                         console.warn('⚠️ No hicster ID found for writer:', contentData.writer);
                     }
