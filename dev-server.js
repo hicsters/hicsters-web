@@ -53,7 +53,20 @@ http.createServer((req, res) => {
     try {
         const data = fs.readFileSync(filePath);
         const ext = path.extname(filePath);
-        res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'text/plain' });
+        
+        // 캐시 헤더 설정
+        const headers = { 'Content-Type': mimeTypes[ext] || 'text/plain' };
+        
+        // 정적 리소스에 대한 캐시 설정
+        if (['.js', '.css', '.png', '.jpg', '.jpeg', '.avif', '.svg', '.woff', '.woff2'].includes(ext)) {
+            headers['Cache-Control'] = 'public, max-age=31536000, immutable';
+        } else if (ext === '.html') {
+            headers['Cache-Control'] = 'public, max-age=0, must-revalidate';
+        } else {
+            headers['Cache-Control'] = 'public, max-age=3600';
+        }
+        
+        res.writeHead(200, headers);
         res.end(data);
     } catch (err) {
         console.error('❌ File not found:', filePath);

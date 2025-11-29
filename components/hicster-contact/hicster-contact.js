@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             const contactData = {
                 "hicster-01": {
                     name:  "고나",
-                    intro: "고나의 간단한 소개",
+                    intro: "레슨비 벌러 출근합니다",
                     email: "hurungkk@naver.com",
-                    image: "/images/profiles/img-profile-01.png"
+                    image: "/images/profiles/img-profile-01.avif"
                 },
                 "hicster-02": {
                     name:  "김금진",
@@ -54,15 +54,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 "hicster-07": {
                     name:  "라근",
-                    intro: "함부로 아름다운 청춘, 너의 하늘을 보아",
+                    intro: "나의 하늘을 보아",
                     email: "ragnn96@gmail.com",
                     image: "/images/profiles/img-profile-07.avif"
                 },
                 "hicster-08": {
                     name:  "세세",
-                    intro: "세세의 간단한 소개",
+                    intro: "글쓰기가 힘든 카피라이터",
                     email: "seed611@daum.net",
-                    image: "/images/profiles/img-profile-08.png"
+                    image: "/images/profiles/img-profile-08.avif"
                 },
                 "hicster-09": {
                     name:  "채다정",

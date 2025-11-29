@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters: Contents Title</title>
-    <script src="/scripts/contents-data.js"></script>
-    <script src="/scripts/common.js"></script>
-    <link rel="stylesheet" href="/css/contents.css">
+    <link rel="preload" href="/css/contents.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/contents.css"></noscript>
+    <script src="/scripts/contents-data.js" defer></script>
+    <script src="/scripts/common.js" defer></script>
     <!-- Thumbnail -->
     <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
     <meta property="og:type" content="website">
@@ -82,10 +83,10 @@
         </div>
     </main>
     <div id="footer"></div>
-    <script src="/scripts/contents.js"></script>
-    <script src="/components/head/head.js"></script>
-    <script src="/components/header/header.js"></script>
-    <script src="/components/footer/footer.js"></script>
-    <script src="/components/hicster-contact/hicster-contact.js"></script>
+    <script src="/scripts/contents.js" defer></script>
+    <script src="/components/head/head.js" defer></script>
+    <script src="/components/header/header.js" defer></script>
+    <script src="/components/footer/footer.js" defer></script>
+    <script src="/components/hicster-contact/hicster-contact.js" defer></script>
 </body>
 </html>

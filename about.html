@@ -7,9 +7,10 @@
     <script src="/components/head/head.js" defer></script>
     <!-- Rive -->
     <script src="https://unpkg.com/@rive-app/canvas@latest"></script>   
-    <link rel="stylesheet" href="/css/about.css">
+    <link rel="preload" href="/css/about.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/about.css"></noscript>
     <!-- Thumbnail -->
-    <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
+    <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다. 우리가 어떻게 시작했는지, 누구인지, 무엇을 하는지에 대한 이야기.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hiccsters">
     <meta property="og:title" content="Hiccsters">
@@ -29,9 +30,9 @@
     <main role="main" aria-label="어바웃 페이지">
         <div class="about-intro" aria-label="소개">
             <div class="about-intro-frame">
-                <img class="can" src="/images/logo/ScrollAnim/can-i-get-a.avif" alt="">
+                <img class="can" src="/images/logo/ScrollAnim/can-i-get-a.avif" alt="힉스터즈 캔 이미지" loading="lazy">
                 <div class="about-title">
-                    <img id="frame" src="/images/logo/ScrollAnim/000.avif" alt="">
+                    <img id="frame" src="/images/logo/ScrollAnim/000.avif" alt="힉스터즈 로고 프레임" loading="lazy">
                 </div>
             </div>
         </div>
@@ -151,9 +152,9 @@
         </div>
     </main>
     <div id="footer" role="contentinfo"></div>
-    <script src="/components/header/header.js"></script>
-    <script src="/components/footer/footer.js"></script>
-    <script src="/scripts/common.js"></script>
-    <script src="/scripts/about.js"></script>
+    <script src="/components/header/header.js" defer></script>
+    <script src="/components/footer/footer.js" defer></script>
+    <script src="/scripts/common.js" defer></script>
+    <script src="/scripts/about.js" defer></script>
 </body>
 </html>

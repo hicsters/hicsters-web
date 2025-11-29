@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters: Contact</title>
     <script src="/components/head/head.js" defer></script>
-    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="preload" href="/css/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/contact.css"></noscript>
     <!-- Thumbnail -->
-    <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
+    <meta name="description" content="Hiccsters에 연락하고 싶으신가요? 이메일을 통해 문의해주세요.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hiccsters">
     <meta property="og:title" content="Hiccsters">
@@ -64,9 +65,9 @@
         </div>
     </main>
     <div id="footer" role="contentinfo"></div>
-    <script src="/components/header/header.js"></script>
-    <script src="/components/footer/footer.js"></script>
-    <script src="/scripts/contact.js"></script>
-    <script src="/scripts/common.js"></script>
+    <script src="/components/header/header.js" defer></script>
+    <script src="/components/footer/footer.js" defer></script>
+    <script src="/scripts/contact.js" defer></script>
+    <script src="/scripts/common.js" defer></script>
 </body>
 </html>

@@ -47,6 +47,29 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (data.fontFamily) root.style.setProperty('--font-family', data.fontFamily);
 
             document.title = `Hicsters: ${data.title}`;
+            
+            // Meta description 동적 업데이트
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && data.quote) {
+                metaDescription.setAttribute('content', `${data.quote} - ${data.writer}의 "${data.title}"`);
+            }
+            
+            // OG 태그 동적 업데이트
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            const ogImage = document.querySelector('meta[property="og:image"]');
+            const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+            const twitterImage = document.querySelector('meta[name="twitter:image"]');
+            
+            if (ogTitle) ogTitle.setAttribute('content', `Hicsters: ${data.title}`);
+            if (ogDescription && data.quote) ogDescription.setAttribute('content', `${data.quote} - ${data.writer}의 "${data.title}"`);
+            if (ogUrl) ogUrl.setAttribute('content', `https://hicsters.com/contents/${id}`);
+            if (ogImage) ogImage.setAttribute('content', `https://hicsters.com/images/thumb/thumb-${id}.avif`);
+            if (twitterTitle) twitterTitle.setAttribute('content', `Hicsters: ${data.title}`);
+            if (twitterDescription && data.quote) twitterDescription.setAttribute('content', `${data.quote} - ${data.writer}의 "${data.title}"`);
+            if (twitterImage) twitterImage.setAttribute('content', `https://hicsters.com/images/thumb/thumb-${id}.avif`);
 
             // 시리즈 정보 처리
             const seriesNumEl = document.querySelector('li.series-num');

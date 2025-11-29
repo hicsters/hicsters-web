@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hicsters</title>
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preload" href="/css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/common.css"></noscript>
+    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
     <!-- Thumbnail -->
     <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
     <meta property="og:type" content="website">
@@ -21,6 +23,18 @@
     <meta name="twitter:title" content="Hiccsters">
     <meta name="twitter:description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
     <meta name="twitter:image" content="https://hicsters.com/images/thumb/thumb-og.png">
+    <script>
+        // CSS 비동기 로드 폴백
+        (function() {
+            var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+            links.forEach(function(link) {
+                link.onload = function() {
+                    this.onload = null;
+                    this.rel = 'stylesheet';
+                };
+            });
+        })();
+    </script>
 </head>
 <body>
     <section class="top" role="banner">
@@ -47,12 +61,12 @@
         </div>          
     </main>
     <div id="footer" role="contentinfo" aria-label="페이지 푸터"></div>
-    <script src="/scripts/contents-data.js"></script>
-    <script src="/components/header/header.js"></script>
-    <script src="/components/footer/footer.js"></script>
-    <script src="/components/card/card.js"></script>
-    <script src="/scripts/common.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="/scripts/contents-data.js" defer></script>
+    <script src="/components/header/header.js" defer></script>
+    <script src="/components/footer/footer.js" defer></script>
+    <script src="/components/card/card.js" defer></script>
+    <script src="/scripts/common.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
 </body>
 </html>
 
