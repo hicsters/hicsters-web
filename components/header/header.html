@@ -3,8 +3,9 @@
 // 페이지 로드 전에 초기 상태 설정
 (function() {
     const path = location.pathname;
-    const isAbout = path.includes('about.html');
-    const isContact = path.includes('contact.html');
+    // 경로 정규화: /about, /about.html, /about/ 모두 매칭
+    const isAbout = /\/about(\/|\.html)?$/.test(path) || path.includes('/about');
+    const isContact = /\/contact(\/|\.html)?$/.test(path) || path.includes('/contact');
     if (isAbout || isContact) {
         document.documentElement.classList.add('hide-logo-init');
     }

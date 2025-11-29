@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
         // 페이지 타입에 따른 body 클래스 설정
         const path = location.pathname;
-        const isHome = path === "/" || path.includes("index.html");
-        const isAbout = path.includes('about.html');
-        const isContact = path.includes('contact.html');
+        // 경로 정규화: /about, /about.html, /about/ 모두 매칭
+        const isHome = path === "/" || path === "/index.html" || path.includes("/index.html");
+        const isAbout = /\/about(\/|\.html)?$/.test(path) || path.includes('/about');
+        const isContact = /\/contact(\/|\.html)?$/.test(path) || path.includes('/contact');
         const isContents = path.includes("contents");
         
         if (isAbout) {
@@ -106,18 +107,28 @@ document.addEventListener("DOMContentLoaded", async function () {
         // requestAnimationFrame을 사용한 스크롤 최적화
         let ticking = false;
         let lastScrollY = 0;
-        const scrollThreshold = window.innerHeight * 1.5;
+        // about.js와 일치: 100vh (100vh)에서 헤더 변경
+        const scrollThreshold = window.innerHeight * 1.0; // 100vh
 
         const applyAboutScrollState = () => {
             const currentScrollY = window.scrollY;
             
-            // 스크롤 위치가 이전과 크게 다를 때만 처리
-            if (Math.abs(currentScrollY - lastScrollY) > 50) {
-                const scrolled = currentScrollY >= scrollThreshold;
-                header.classList.toggle("bg", scrolled);
-                header.classList.toggle("show-logo", scrolled);
-                lastScrollY = currentScrollY;
+            // 스크롤 위치가 threshold를 넘었는지 확인
+            const scrolled = currentScrollY >= scrollThreshold;
+            
+            // 상태가 변경될 때만 클래스 토글
+            const hasBg = header.classList.contains("bg");
+            const hasShowLogo = header.classList.contains("show-logo");
+            
+            if (scrolled && (!hasBg || !hasShowLogo)) {
+                header.classList.add("bg");
+                header.classList.add("show-logo");
+            } else if (!scrolled && (hasBg || hasShowLogo)) {
+                header.classList.remove("bg");
+                header.classList.remove("show-logo");
             }
+            
+            lastScrollY = currentScrollY;
         };
 
         // 스크롤 이벤트 디바운싱
@@ -229,12 +240,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             setMenuIcon("black");
             setLogo("black");
         } else if (isAbout) {
+            // 초기 상태 설정 (이미 위에서 스크롤 이벤트 리스너가 등록됨)
             header.classList.remove("show-logo");
             setMenuIcon("white");
             applyAboutScrollState();
-            window.addEventListener("scroll", () => {
-                if (!isMenuOpen) applyAboutScrollState();
-            });
         } else if (isContact) {
             header.classList.remove("show-logo");
             setMenuIcon("black");
