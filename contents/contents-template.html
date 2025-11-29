@@ -12,9 +12,12 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap" rel="stylesheet" crossorigin>
-    <!-- CSS -->
-    <link rel="preload" href="/css/contents.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/contents.css"></noscript>
+    <!-- CSS - 동기 로드로 FOUC 방지 -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/contents.css">
+    <link rel="stylesheet" href="/components/header/header.css">
+    <link rel="stylesheet" href="/components/footer/footer.css">
+    <link rel="stylesheet" href="/components/hicster-contact/hicster-contact.css">
     <script src="/scripts/contents-data.js" defer></script>
     <script src="/scripts/common.js" defer></script>
     <!-- Thumbnail -->

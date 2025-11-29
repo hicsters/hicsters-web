@@ -12,11 +12,12 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap" rel="stylesheet" crossorigin>
-    <!-- CSS -->
-    <link rel="preload" href="/css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/common.css"></noscript>
-    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
+    <!-- CSS - 동기 로드로 FOUC 방지 -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/components/header/header.css">
+    <link rel="stylesheet" href="/components/footer/footer.css">
+    <link rel="stylesheet" href="/components/card/card.css">
     <!-- Thumbnail -->
     <meta name="description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
     <meta property="og:type" content="website">
@@ -32,18 +33,6 @@
     <meta name="twitter:title" content="Hiccsters">
     <meta name="twitter:description" content="하염없이 딸꾹거리는 사람들, Hiccsters입니다.">
     <meta name="twitter:image" content="https://hicsters.com/images/thumb/thumb-og.png">
-    <script>
-        // CSS 비동기 로드 폴백
-        (function() {
-            var links = document.querySelectorAll('link[rel="preload"][as="style"]');
-            links.forEach(function(link) {
-                link.onload = function() {
-                    this.onload = null;
-                    this.rel = 'stylesheet';
-                };
-            });
-        })();
-    </script>
 </head>
 <body>
     <section class="top" role="banner">
