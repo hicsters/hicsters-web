@@ -6,7 +6,7 @@ const writerToHicsterId = {
     '김씨': 'hicster-03',
     '김윤희': 'hicster-04',
     '노나': 'hicster-05',
-    '도나': 'hicster-06',
+    '김만끽': 'hicster-06',
     '라근': 'hicster-07',
     '세세': 'hicster-08',
     '채다정': 'hicster-09'
@@ -227,6 +227,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                     const option = document.createElement('div');
                     option.textContent = pageNumber.padStart(2, '0');  // 2자리로 패딩
                     option.setAttribute('data-url', `/contents/${pageId}`);
+                    if (pageId === id) {
+                        option.setAttribute('data-current', 'true');
+                    }
                     optionsContainer.appendChild(option);
                     
                     // 옵션 클릭 이벤트

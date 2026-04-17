@@ -144,8 +144,8 @@ li.info-divider{
 
 /* 현재 페이지 옵션 스타일 */
 .dropdown-options > div[data-current="true"] {
-    background-color: var(--text-color);
-    color: var(--bg-color) !important;
+    background-color: #1a1a1a;
+    color: #ffffff !important;
 }
 
 /* 호버 효과 (현재 페이지 옵션 제외) */

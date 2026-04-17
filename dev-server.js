@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = 3001;
 
 // MIME 타입 매핑
 const mimeTypes = {
@@ -57,13 +57,11 @@ http.createServer((req, res) => {
         // 캐시 헤더 설정
         const headers = { 'Content-Type': mimeTypes[ext] || 'text/plain' };
         
-        // 정적 리소스에 대한 캐시 설정
-        if (['.js', '.css', '.png', '.jpg', '.jpeg', '.avif', '.svg', '.woff', '.woff2'].includes(ext)) {
+        // 정적 리소스에 대한 캐시 설정 (개발 서버: 캐시 비활성화)
+        if (['.woff', '.woff2'].includes(ext)) {
             headers['Cache-Control'] = 'public, max-age=31536000, immutable';
-        } else if (ext === '.html') {
-            headers['Cache-Control'] = 'public, max-age=0, must-revalidate';
         } else {
-            headers['Cache-Control'] = 'public, max-age=3600';
+            headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
         }
         
         res.writeHead(200, headers);
