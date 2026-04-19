@@ -23,15 +23,20 @@ grep "const PORT" dev-server.js
 pkill -f "node dev-server.js" 2>/dev/null; sleep 1
 ```
 
-## Step 4: Terminal에서 서버 실행
+## Step 4: 서버 백그라운드 실행
 
-현재 경로(`$PWD`)를 사용해 Terminal 창을 열고 서버를 기동한다:
+`node dev-server.js`를 백그라운드(`&`)로 직접 실행한다.  
+경로에 아포스트로피 등 특수문자가 포함될 수 있으므로 osascript 대신 직접 실행한다.
 
 ```bash
-osascript -e "tell application \"Terminal\"
-  activate
-  do script \"cd '$PWD' && node dev-server.js\"
-end tell"
+node dev-server.js &
+sleep 2
+```
+
+서버가 정상 기동됐는지 포트로 확인한다:
+
+```bash
+lsof -i :{PORT}
 ```
 
 ## Step 5: Chrome 열기

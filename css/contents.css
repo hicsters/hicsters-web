@@ -245,6 +245,15 @@ strong{
     display: block;
 }
 
+li.image + li.image {
+    margin-top: -16px;
+}
+
+.image-container.image-placeholder {
+    background: #d0d0d0;
+    min-height: 180px;
+}
+
 .image-skeleton {
     width: 100%;
     height: 200px;
@@ -258,7 +267,7 @@ strong{
 }
 
 li.callout {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.06);
     border: none;
     padding: 0;
     margin: 16px 0;
@@ -286,6 +295,11 @@ li.callout .callout-emoji {
 li.callout .callout-content {
     flex: 1;
     line-height: 24px;
+}
+
+li.callout .callout-content > strong {
+    display: block;
+    margin-bottom: 8px;
 }
 
 li.caption {

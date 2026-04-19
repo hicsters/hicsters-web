@@ -41,10 +41,10 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 ### 규칙 1. [캡션](미디어URL) 형식 — 최우선
 - `[캡션텍스트](url.jpg|jpeg|png|gif|webp|mp4)` 형태이면:
   - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더 (seq는 001부터)
-  - 다음 의미있는 줄이 캡션과 동일 텍스트이면 소비(중복 방지)
+  - 바로 다음 줄(빈 줄 없이 인접)이 캡션과 동일 텍스트이면 소비(중복 방지)
   - mp4 → `<video controls playsinline>`, 나머지 → `<img>`
 ```html
-<li class="image"><div class="image-container"><img src="/images/contents/{id}-001.jpg" alt=""></div><div class="caption">캡션텍스트</div></li>
+<li class="image"><div class="image-container image-placeholder"><img src="/images/contents/{id}-001.jpg" alt=""></div><div class="caption">캡션텍스트</div></li>
 ```
 
 ### 규칙 2. 멀티라인 이미지 블록
@@ -53,6 +53,8 @@ ID가 존재하지 않으면 오류 안내 후 종료.
   - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더
   - 블록 이후 다음 의미있는 줄이 캡션 조건이고 특수 블록이 아니면 캡션으로 처리
   - mp4 → `<video>`, 나머지 → `<img>`
+
+- 연속된 이미지(`li.image + li.image`) 사이 간격 16px은 CSS로 자동 처리 — HTML 추가 불필요
 
 ### 규칙 3. 빈 줄
 - 누적된 텍스트 단락이 있으면 `<li class="text">`로 닫고 새 단락 시작
@@ -91,8 +93,13 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 ### 규칙 8. 인라인 이미지/동영상
 - `![alt](url)` 또는 단독 미디어 URL 줄:
   - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더
-  - 다음 의미있는 줄이 캡션 조건(64자 이하 or 따옴표로 시작/끝)이면 캡션으로 처리
+  - 이미지 바로 다음 줄(빈 줄 없이 인접한 줄)이 캡션 조건(64자 이하 or 따옴표로 시작/끝)이면 캡션으로 처리
+  - 이미지와 텍스트 사이에 빈 줄이 있으면 캡션으로 처리하지 않음
   - 특수 블록(`>`, `***`, `*`, `<aside>`, `![`, `###`)이면 캡션으로 쓰지 않음
+  - 이미지 미등록 상태에서도 영역이 보이도록 `image-container`에 `image-placeholder` 클래스 추가:
+```html
+<li class="image"><div class="image-container image-placeholder"><img src="/images/contents/{id}-001.jpg" alt=""></div><div class="caption">캡션텍스트</div></li>
+```
 
 ### 규칙 9. 콜아웃
 - `<aside>` ~ `</aside>` 블록:
@@ -101,10 +108,13 @@ ID가 존재하지 않으면 오류 안내 후 종료.
   - 줄바꿈 → `<br>`
 ```html
 <li class="callout"><div class="callout"><span class="callout-emoji">💭</span><div class="callout-content">내용</div></div></li>
+
+  - `<strong>` 뒤에 `<br>` 삽입하지 않는다. 간격은 CSS로 처리됨.
 ```
 
 ### 규칙 10. 인라인 스타일
 - `**텍스트**` → `<strong>텍스트</strong>` (모든 블록에 적용)
+- `*텍스트*` (단일 asterisk, 기울임체) → `텍스트` (asterisk 제거, `**` 볼드와 구분)
 
 ### 규칙 11. 일반 텍스트
 - 위 어느 것도 해당 안 되면 현재 단락에 누적
@@ -125,17 +135,39 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 
 ---
 
-## Step 5: 노출 확인
+## Step 5: 이미지 연결
 
-미리보기 서버(localhost:3000)에서 해당 콘텐츠 페이지(`/contents/{id}`)를 열어 내용이 정상적으로 렌더링되는지 스크린샷으로 확인한다.
+`images/contents/` 폴더에서 해당 ID의 이미지를 조회한다:
+
+```bash
+ls images/contents/{id}-* 2>/dev/null | sort
+```
+
+조회 결과를 seq 순서(001, 002, ...)대로 정렬한 뒤, 저장된 HTML에서 각 `<img src="/images/contents/{id}-{seq}.xxx">` 플레이스홀더를 실제 파일명(정확한 확장자)으로 교체한다.
+
+이미지가 연결된 경우 해당 `image-container`의 `image-placeholder` 클래스도 제거한다:
+- 변경 전: `<div class="image-container image-placeholder">`
+- 변경 후: `<div class="image-container">`
+
+이미지가 없는 seq는 그대로 둔다 (플레이스홀더 유지).
 
 ---
 
-## Step 6: 완료 메시지 출력
+## Step 6: 노출 확인
+
+미리보기 서버에서 해당 콘텐츠 페이지(`/contents/{id}`)를 열어 내용이 정상적으로 렌더링되는지 스크린샷으로 확인한다.
+
+---
+
+## Step 7: 완료 메시지 출력
 
 ```
 완료! contents/bodies/{id}.html 이 업데이트되었습니다.
+연결된 이미지: {n}장 / 전체 {total}장
+```
 
-이미지가 포함된 경우 플레이스홀더를 실제 이미지로 교체해주세요:
+연결되지 않은 이미지가 있으면 목록을 안내한다:
+```
+미연결 이미지 플레이스홀더:
 → /images/contents/{id}-001.확장자
 ```
