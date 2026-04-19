@@ -39,12 +39,16 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 - 연속 공백 2개 이상 → 공백 1개로 치환
 
 ### 규칙 1. [캡션](미디어URL) 형식 — 최우선
-- `[캡션텍스트](url.jpg|jpeg|png|gif|webp|mp4)` 형태이면:
+- `[캡션텍스트](url.jpg|jpeg|png|gif|webp|mp4|webm|mov)` 형태이면:
   - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더 (seq는 001부터)
+  - 빈 캡션 `[]` 이면 `<div class="caption">` 생략
   - 다음 의미있는 줄이 캡션과 동일 텍스트이면 소비(중복 방지)
-  - mp4 → `<video controls playsinline>`, 나머지 → `<img>`
+  - mp4/webm/mov → `<video controls playsinline>`, 나머지 → `<img>`
 ```html
+<!-- 캡션 있을 때 -->
 <li class="image"><div class="image-container"><img src="/images/contents/{id}-001.jpg" alt=""></div><div class="caption">캡션텍스트</div></li>
+<!-- 캡션 없을 때 -->
+<li class="image"><div class="image-container"><img src="/images/contents/{id}-001.jpg" alt=""></div></li>
 ```
 
 ### 규칙 2. 멀티라인 이미지 블록
