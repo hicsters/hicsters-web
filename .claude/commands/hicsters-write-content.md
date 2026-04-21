@@ -38,9 +38,15 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 ### 전처리
 - 연속 공백 2개 이상 → 공백 1개로 치환
 
+### 이미지 경로 결정 규칙 (모든 이미지 규칙에 공통 적용)
+이미지/동영상 경로를 결정할 때 **반드시** 아래 순서로 처리한다:
+1. `images/contents/` 디렉토리에서 `{id}-{seq}.*` 패턴의 파일을 Glob으로 검색
+2. 파일이 존재하면 → 해당 파일의 실제 확장자 사용
+3. 파일이 없으면 → `.jpg` 확장자로 플레이스홀더 생성
+
 ### 규칙 1. [캡션](미디어URL) 형식 — 최우선
 - `[캡션텍스트](url.jpg|jpeg|png|gif|webp|mp4|webm|mov)` 형태이면:
-  - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더 (seq는 001부터)
+  - 미디어 경로 → 이미지 경로 결정 규칙에 따라 `/images/contents/{id}-{seq}.확장자` (seq는 001부터)
   - 빈 캡션 `[]` 이면 `<div class="caption">` 생략
   - 다음 의미있는 줄이 캡션과 동일 텍스트이면 소비(중복 방지)
   - mp4/webm/mov → `<video controls playsinline>`, 나머지 → `<img>`
@@ -54,7 +60,7 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 ### 규칙 2. 멀티라인 이미지 블록
 - 줄이 `![`로 시작하면:
   - 이후 줄에서 `](url)` 패턴을 찾아 URL 추출 (빈 줄 건너뜀)
-  - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더
+  - 미디어 경로 → 이미지 경로 결정 규칙에 따라 결정
   - 블록 이후 다음 의미있는 줄이 캡션 조건이고 특수 블록이 아니면 캡션으로 처리
   - mp4 → `<video>`, 나머지 → `<img>`
 
@@ -94,15 +100,24 @@ ID가 존재하지 않으면 오류 안내 후 종료.
 
 ### 규칙 8. 인라인 이미지/동영상
 - `![alt](url)` 또는 단독 미디어 URL 줄:
-  - 미디어 경로 → `/images/contents/{id}-{seq}.확장자` 플레이스홀더
+  - 미디어 경로 → 이미지 경로 결정 규칙에 따라 결정
   - 다음 의미있는 줄이 캡션 조건(64자 이하 or 따옴표로 시작/끝)이면 캡션으로 처리
   - 특수 블록(`>`, `***`, `*`, `<aside>`, `![`, `###`)이면 캡션으로 쓰지 않음
 
-### 규칙 9. 콜아웃
+### 규칙 9. 유튜브 임베드
+- 단독 유튜브 URL 줄 (`https://www.youtube.com/watch?v=...` 또는 `https://youtu.be/...`):
+  - video ID 추출 후 embed URL로 변환
+  - `watch?v=ID` → `https://www.youtube.com/embed/ID`
+  - `youtu.be/ID` → `https://www.youtube.com/embed/ID`
+```html
+<li class="embed"><div class="embed-container"><iframe src="https://www.youtube.com/embed/{ID}" allowfullscreen></iframe></div></li>
+```
+
+### 규칙 10. 콜아웃
 - `<aside>` ~ `</aside>` 블록:
   - 첫 줄이 이모지 → 아이콘으로 사용, 나머지가 내용
   - 이모지 없으면 기본 아이콘 `💭`
-  - 줄바꿈 → `<br>`
+  - 줄바꿈 → `<br>` (단, `</strong>` 바로 뒤에는 `<br>` 삽입 안 함)
 ```html
 <li class="callout"><div class="callout"><span class="callout-emoji">💭</span><div class="callout-content">내용</div></div></li>
 ```

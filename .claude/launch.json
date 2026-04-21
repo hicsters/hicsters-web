@@ -5,7 +5,8 @@
       "name": "hicsters-web dev server",
       "runtimeExecutable": "node",
       "runtimeArgs": ["dev-server.js"],
-      "port": 3000
+      "port": 3001,
+      "autoPort": false
     }
   ]
 }
