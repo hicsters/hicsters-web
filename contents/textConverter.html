@@ -441,7 +441,9 @@
             }
 
             isFootnote(line) {
-                return line.trim().startsWith('*');
+                const t = line.trim();
+                // ** 로 시작하는 볼드 텍스트 제외
+                return t.startsWith('*') && !t.startsWith('**');
             }
 
             isQuoteBlock(lines, startIndex) {
@@ -499,12 +501,13 @@
             }
 
             isVideoUrl(url) {
-                return /\.mp4(\?|$)/i.test(url);
+                return /\.(mp4|webm|mov)(\?|$)/i.test(url);
             }
 
-            // [caption](mediaUrl) 형태의 미디어 링크 감지 (jpg|jpeg|png|gif|webp|mp4)
+            // [caption](mediaUrl) 형태의 미디어 링크 감지 (jpg|jpeg|png|gif|webp|mp4|webm|mov)
+            // 빈 캡션 [] 도 허용
             isMediaLink(line) {
-                const m = line.match(/^\[([^\]]+)\]\(([^)]+\.(?:jpg|jpeg|png|gif|webp|mp4))(?:[^)]*)\)$/i);
+                const m = line.match(/^\[([^\]]*)\]\(([^)]+\.(?:jpg|jpeg|png|gif|webp|mp4|webm|mov))(?:[^)]*)\)$/i);
                 return m ? { caption: m[1], url: m[2] } : null;
             }
 
@@ -580,7 +583,18 @@
                 return null;
             }
 
+            // 이미 writing HTML일 때: 줄 끝 공백만 제거하고 그대로 반환
+            normalizeWritingHtml(html) {
+                return html.split('\n').map(line => line.trimEnd()).join('\n').trim();
+            }
+
             notionToHtml(inputText) {
+                const trimmed = inputText.trim();
+                // 이미 writing HTML인 경우 그대로 반환 (들여쓰기·줄 끝 공백만 정리)
+                if (trimmed.startsWith('<ul class="writing">') && trimmed.includes('</ul>')) {
+                    return this.normalizeWritingHtml(trimmed);
+                }
+
                 const lines = inputText.split('\n');
                 const htmlLines = [];
                 htmlLines.push('<ul class="writing">');
@@ -605,10 +619,19 @@
                         // 스켈레톤 + 캡션 (같은 li.image 내부에 배치)
                         const captionHtml = this.applyInlineStyles(mediaLink.caption);
                         const abs = this.getMediaAbsPath(mediaLink.url);
+                        const hasCaptionText = mediaLink.caption.trim().length > 0;
                         if (this.isVideoUrl(abs)) {
-                            htmlLines.push(`    <li class="image"><div class="image-container"><video src="${abs}" controls playsinline></video></div><div class="caption">${captionHtml}</div></li>`);
+                            if (hasCaptionText) {
+                                htmlLines.push(`    <li class="image"><div class="image-container"><video src="${abs}" controls playsinline></video></div><div class="caption">${captionHtml}</div></li>`);
+                            } else {
+                                htmlLines.push(`    <li class="image"><div class="image-container"><video src="${abs}" controls playsinline></video></div></li>`);
+                            }
                         } else {
-                            htmlLines.push(`    <li class="image"><div class="image-container"><img src="${abs}" alt=""></div><div class="caption">${captionHtml}</div></li>`);
+                            if (hasCaptionText) {
+                                htmlLines.push(`    <li class="image"><div class="image-container"><img src="${abs}" alt=""></div><div class="caption">${captionHtml}</div></li>`);
+                            } else {
+                                htmlLines.push(`    <li class="image"><div class="image-container"><img src="${abs}" alt=""></div></li>`);
+                            }
                         }
 
                         // 다음 줄이 동일 캡션 텍스트라면 소비하여 중복 방지
