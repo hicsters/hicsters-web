@@ -111,7 +111,7 @@ li.info-divider{
     top: 100%;
     right: 0;
     width: 100%;
-    max-height: 144px;          /* 최대 높이 설정 */
+    max-height: 162px;          /* 최대 높이 4.5칸 */
     overflow-y: auto;           /* 내부 스크롤 활성화 */
     background: var(--bg-color);
     border: 2px solid var(--text-color);
